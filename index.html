@@ -61,6 +61,7 @@ display:flex;
 justify-content:space-between;
 flex-wrap:wrap;
 padding:8px 0;
+gap:10px;
 }
 
 .pill{
@@ -81,7 +82,7 @@ z-index:50;
 
 .header .row{
 display:grid;
-grid-template-columns:260px 1fr 260px;
+grid-template-columns:260px 1fr 320px;
 gap:12px;
 align-items:center;
 padding:12px 0;
@@ -145,6 +146,7 @@ cursor:pointer;
 display:flex;
 gap:10px;
 justify-content:flex-end;
+flex-wrap:wrap;
 }
 
 .btn{
@@ -182,6 +184,11 @@ border-radius:12px;
 background:rgba(255,255,255,.15);
 font-size:13px;
 cursor:pointer;
+white-space:nowrap;
+}
+
+.catlink:hover{
+background:rgba(255,255,255,.22);
 }
 
 /* Hero */
@@ -224,6 +231,7 @@ font-size:12px;
 display:flex;
 gap:10px;
 margin-top:14px;
+flex-wrap:wrap;
 }
 
 .heroSide{
@@ -310,6 +318,8 @@ padding:10px 0;
 display:flex;
 justify-content:space-between;
 align-items:center;
+gap:10px;
+flex-wrap:wrap;
 }
 
 /* Footer */
@@ -327,145 +337,157 @@ border-radius:18px;
 padding:14px;
 }
 
+@media (max-width: 980px){
+  .header .row{grid-template-columns:1fr}
+  .hero{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(2,1fr)}
+}
+
 </style>
 </head>
 
 <body>
 
 <div class="utility">
-<div class="wrap">
-<div class="row">
-<div class="pill">Entrega 2 a 4 días hábiles • Despacho GRATIS (Gran Concepción)</div>
-<div class="pill">Pago contra entrega • Crédito 7 / 15 / 20 días</div>
-</div>
-</div>
+  <div class="wrap">
+    <div class="row">
+      <div class="pill">Entrega 2 a 4 días hábiles • Despacho GRATIS (Gran Concepción)</div>
+      <div class="pill">Pago contra entrega • Crédito 7 / 15 / 20 días</div>
+    </div>
+  </div>
 </div>
 
 <div class="header">
-<div class="wrap">
-<div class="row">
+  <div class="wrap">
+    <div class="row">
 
-<div class="brand">
-<div class="logoBox">
-<img src="logotipo.png" width="40">
-</div>
-<div>
-<b>Mundo D&H</b>
-<span>Distribución Online</span>
-</div>
-</div>
+      <!-- ✅ Marca: click vuelve a inicio -->
+      <a class="brand" href="index.html" aria-label="Ir al inicio">
+        <div class="logoBox">
+          <img src="logotipo.png" width="40" alt="Logo Mundo D&H">
+        </div>
+        <div>
+          <b>Mundo D&H</b>
+          <span>Distribución Online</span>
+        </div>
+      </a>
 
-<div class="search">
-<input placeholder="Buscar producto"/>
-<button>Buscar</button>
-</div>
+      <div class="search">
+        <input placeholder="Buscar producto"/>
+        <button>Buscar</button>
+      </div>
 
-<div class="actions">
-<button class="btn">Carrito</button>
-<button class="btn primary">Cotizar</button>
-</div>
+      <div class="actions">
+        <button class="btn">Carrito</button>
+        <a class="btn" href="empresas.html">Empresas</a> <!-- ✅ NUEVO -->
+        <button class="btn primary">Cotizar</button>
+      </div>
 
-</div>
-</div>
+    </div>
+  </div>
 </div>
 
 <div class="catbar">
+  <div class="wrap">
+    <div class="row">
+
+      <div class="catlink">Inicio</div>
+      <div class="catlink">Escolar</div>
+      <div class="catlink">Oficina</div>
+      <div class="catlink">Ferretería</div>
+      <div class="catlink">Limpieza</div>
+      <div class="catlink">Computación</div>
+      <div class="catlink">Hogar</div>
+      <div class="catlink">Ofertas</div>
+
+      <!-- ✅ NUEVO LINK EMPRESAS -->
+      <a class="catlink" href="empresas.html">Empresas</a>
+
+    </div>
+  </div>
+</div>
+
 <div class="wrap">
-<div class="row">
 
-<div class="catlink">Inicio</div>
-<div class="catlink">Escolar</div>
-<div class="catlink">Oficina</div>
-<div class="catlink">Ferretería</div>
-<div class="catlink">Limpieza</div>
-<div class="catlink">Computación</div>
-<div class="catlink">Hogar</div>
-<div class="catlink">Ofertas</div>
+  <section class="hero">
 
-</div>
-</div>
-</div>
+    <div class="heroMain">
+      <h1>Compra online en Mundo D&H</h1>
 
-<div class="wrap">
+      <p>
+        Catálogo DEMO hasta recibir el catálogo oficial.
+      </p>
 
-<section class="hero">
+      <div class="heroBadges">
+        <div class="badge">Despacho GRATIS</div>
+        <div class="badge">Entrega 2-4 días</div>
+        <div class="badge">Pago contra entrega</div>
+        <div class="badge">Gran Concepción</div>
+      </div>
 
-<div class="heroMain">
-<h1>Compra online en Mundo D&H</h1>
+      <div class="heroCtas">
+        <button class="btn primary">Ver ofertas</button>
+        <button class="btn">Ver catálogo</button>
+        <a class="btn" href="empresas.html">Soy empresa</a> <!-- ✅ EXTRA CTA -->
+      </div>
 
-<p>
-Catálogo DEMO hasta recibir el catálogo oficial.
-</p>
+    </div>
 
-<div class="heroBadges">
-<div class="badge">Despacho GRATIS</div>
-<div class="badge">Entrega 2-4 días</div>
-<div class="badge">Pago contra entrega</div>
-<div class="badge">Gran Concepción</div>
-</div>
+    <div class="heroSide">
+      <b>Cobertura</b>
+      <p>Talcahuano, Concepción, Hualpén, San Pedro, Penco y alrededores.</p>
 
-<div class="heroCtas">
-<button class="btn primary">Ver ofertas</button>
-<button class="btn">Ver catálogo</button>
-</div>
+      <b>Pago</b>
+      <p>Contra entrega o crédito empresas.</p>
+    </div>
 
-</div>
+  </section>
 
-<div class="heroSide">
-<b>Cobertura</b>
-<p>Talcahuano, Concepción, Hualpén, San Pedro, Penco y alrededores.</p>
+  <div class="grid">
 
-<b>Pago</b>
-<p>Contra entrega o crédito empresas.</p>
-</div>
+    <div class="p">
+      <div class="pImg">Producto</div>
+      <div class="pBody">
+        <div class="pName">Cuaderno universitario</div>
+        <div class="price">
+          <div class="now">$1.990</div>
+          <button class="add">Agregar</button>
+        </div>
+      </div>
+    </div>
 
-</section>
+    <div class="p">
+      <div class="pImg">Producto</div>
+      <div class="pBody">
+        <div class="pName">Resma papel carta</div>
+        <div class="price">
+          <div class="now">$4.990</div>
+          <button class="add">Agregar</button>
+        </div>
+      </div>
+    </div>
 
-<div class="grid">
-
-<div class="p">
-<div class="pImg">Producto</div>
-<div class="pBody">
-<div class="pName">Cuaderno universitario</div>
-<div class="price">
-<div class="now">$1.990</div>
-<button class="add">Agregar</button>
-</div>
-</div>
-</div>
-
-<div class="p">
-<div class="pImg">Producto</div>
-<div class="pBody">
-<div class="pName">Resma papel carta</div>
-<div class="price">
-<div class="now">$4.990</div>
-<button class="add">Agregar</button>
-</div>
-</div>
-</div>
-
-</div>
+  </div>
 
 </div>
 
 <div class="cartbar">
-<div class="wrap">
-<div class="row">
-<div>Carrito: $0</div>
-<button class="btn primary">Enviar pedido</button>
-</div>
-</div>
+  <div class="wrap">
+    <div class="row">
+      <div>Carrito: $0</div>
+      <button class="btn primary">Enviar pedido</button>
+    </div>
+  </div>
 </div>
 
 <footer>
-<div class="wrap">
-<div class="footerBox">
-<b>Mundo D&H</b><br>
-Distribución escolar, oficina, ferretería y más.<br>
-Gran Concepción
-</div>
-</div>
+  <div class="wrap">
+    <div class="footerBox">
+      <b>Mundo D&H</b><br>
+      Distribución escolar, oficina, ferretería y más.<br>
+      Gran Concepción
+    </div>
+  </div>
 </footer>
 
 </body>
