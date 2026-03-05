@@ -1,0 +1,1169 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mundo D&H | Tienda Online - Escolar, Oficina, Ferretería y más</title>
+  <meta name="description" content="Mundo D&H: compra 100% online. Despacho GRATIS Gran Concepción. Entrega 2 a 4 días hábiles. Pago contra entrega y crédito 7/15/20 días (sujeto a evaluación)." />
+  <meta name="theme-color" content="#c8102e" />
+
+  <style>
+    :root{
+      --paper:#ffffff;
+      --ink:#111827;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+
+      --red:#c8102e;
+      --red2:#ff2d55;
+      --yellow:#ffd400;
+      --yellow2:#ffea70;
+
+      --bg:#f7f7fb;
+      --card:#ffffff;
+
+      --shadow: 0 10px 26px rgba(0,0,0,.08);
+      --shadow2: 0 6px 16px rgba(0,0,0,.08);
+
+      --max:1200px;
+      --r:16px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+      color:var(--ink);
+      background: var(--bg);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 14px}
+
+    /* ===== Top utility bar ===== */
+    .utility{
+      background: linear-gradient(90deg, #0b2a55, #0b3a75);
+      color:#fff;
+      font-size:12px;
+    }
+    .utility .row{
+      display:flex; gap:10px; align-items:center; justify-content:space-between;
+      padding:8px 0;
+      flex-wrap:wrap;
+    }
+    .utility .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px;
+      background: rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;
+      white-space:nowrap;
+    }
+
+    /* ===== Main header ===== */
+    .header{
+      background: #fff;
+      border-bottom:1px solid var(--line);
+      position:sticky;
+      top:0;
+      z-index:50;
+    }
+    .header .row{
+      display:grid;
+      grid-template-columns: 280px 1fr 260px;
+      gap:12px;
+      align-items:center;
+      padding:12px 0;
+    }
+    @media (max-width: 980px){
+      .header .row{grid-template-columns: 1fr; }
+    }
+
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      min-width: 260px;
+    }
+    .brand .logoBox{
+      width:54px;height:54px;border-radius:14px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow2);
+      display:grid; place-items:center;
+      overflow:hidden;
+    }
+    .brand .txt{line-height:1.1}
+    .brand .txt b{display:block;font-size:16px}
+    .brand .txt span{display:block;font-size:12px;color:var(--muted)}
+
+    /* ===== Search ===== */
+    .search{
+      display:flex;
+      border:2px solid rgba(200,16,46,.14);
+      border-radius: 12px;
+      overflow:hidden;
+      box-shadow: 0 6px 18px rgba(200,16,46,.08);
+      background:#fff;
+    }
+    .search input{
+      border:none; outline:none;
+      padding:12px 12px;
+      width:100%;
+      font-size:14px;
+    }
+    .search button{
+      border:none;
+      background: linear-gradient(135deg, var(--yellow), var(--yellow2));
+      padding:0 18px;
+      cursor:pointer;
+      font-weight:900;
+    }
+
+    /* ===== Right actions ===== */
+    .actions{
+      display:flex; gap:10px; justify-content:flex-end; align-items:center;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      border-radius: 12px;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      background:#fff;
+      cursor:pointer;
+      font-weight:800;
+      box-shadow: 0 6px 16px rgba(0,0,0,.06);
+      white-space:nowrap;
+    }
+    .btn.primary{
+      border:none;
+      background: linear-gradient(135deg, var(--red), var(--red2));
+      color:#fff;
+      box-shadow: 0 10px 24px rgba(200,16,46,.22);
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn:active{transform: translateY(0px)}
+    .muted{color:var(--muted)}
+
+    /* ===== Category nav (red bar like retail) ===== */
+    .catbar{
+      background: linear-gradient(90deg, var(--red), #a60f25);
+      color:#fff;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .catbar .row{
+      display:flex; gap:10px; align-items:center;
+      padding:10px 0;
+      overflow:auto;
+      scrollbar-width: thin;
+    }
+    .catlink{
+      padding:10px 12px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.20);
+      background: rgba(255,255,255,.10);
+      font-weight:900;
+      font-size:13px;
+      white-space:nowrap;
+      cursor:pointer;
+    }
+    .catlink.active{
+      background: linear-gradient(135deg, var(--yellow), var(--yellow2));
+      color:#111;
+      border-color: rgba(0,0,0,.08);
+    }
+
+    /* ===== Page shell ===== */
+    .page{
+      padding:16px 0 90px;
+    }
+
+    /* ===== Hero banners ===== */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.4fr .6fr;
+      gap:12px;
+      align-items:stretch;
+      margin-top:14px;
+    }
+    @media (max-width: 980px){ .hero{grid-template-columns:1fr} }
+
+    .heroMain{
+      background:
+        radial-gradient(900px 320px at 10% 0%, rgba(255,212,0,.25), transparent 55%),
+        radial-gradient(900px 320px at 90% 10%, rgba(255,45,85,.14), transparent 60%),
+        linear-gradient(180deg, #ffffff, #ffffff);
+      border:1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+      padding:18px;
+    }
+    .heroMain h1{
+      margin:0;
+      font-size:34px;
+      letter-spacing:-.5px;
+      line-height:1.05;
+    }
+    .heroMain p{
+      margin:10px 0 0;
+      color: rgba(17,24,39,.78);
+      max-width: 70ch;
+      line-height:1.45;
+      font-size:14px;
+    }
+    .heroBadges{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .badge{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 10px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-weight:800;
+      font-size:12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,.06);
+      white-space:nowrap;
+    }
+    .heroCtas{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:14px;
+    }
+
+    .heroSide{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding:16px;
+    }
+    .heroSide b{display:block; font-size:14px}
+    .heroSide .mini{
+      margin-top:10px;
+      border-radius: 14px;
+      border:1px dashed rgba(200,16,46,.25);
+      background: rgba(200,16,46,.04);
+      padding:12px;
+      color: rgba(17,24,39,.78);
+      font-size:13px;
+      line-height:1.35;
+    }
+
+    /* ===== Section title ===== */
+    .titleRow{
+      display:flex; justify-content:space-between; align-items:flex-end;
+      gap:12px; flex-wrap:wrap;
+      margin: 18px 0 10px;
+    }
+    .titleRow h2{margin:0;font-size:18px}
+    .titleRow small{color:var(--muted)}
+
+    /* ===== Product grid ===== */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 1200px){ .grid{grid-template-columns: repeat(4, 1fr)} }
+    @media (max-width: 980px){ .grid{grid-template-columns: repeat(3, 1fr)} }
+    @media (max-width: 720px){ .grid{grid-template-columns: repeat(2, 1fr)} }
+    @media (max-width: 480px){ .grid{grid-template-columns: 1fr} }
+
+    .p{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height: 360px;
+    }
+    .pImg{
+      height:150px;
+      background:
+        radial-gradient(260px 140px at 20% 10%, rgba(255,212,0,.22), transparent 55%),
+        radial-gradient(260px 140px at 90% 20%, rgba(255,45,85,.12), transparent 60%),
+        linear-gradient(180deg, #f3f4f6, #ffffff);
+      display:grid;
+      place-items:center;
+      border-bottom:1px solid var(--line);
+    }
+    .pBody{
+      padding:12px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      flex:1;
+    }
+    .pName{
+      margin:0;
+      font-size:13px;
+      font-weight:900;
+      line-height:1.2;
+      min-height: 34px;
+    }
+    .pMeta{
+      font-size:12px;
+      color:var(--muted);
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .price{
+      margin-top:auto;
+      padding-top:10px;
+      border-top:1px solid var(--line);
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .was{
+      font-size:12px;
+      color: rgba(17,24,39,.55);
+      text-decoration: line-through;
+    }
+    .now{
+      font-size:15px;
+      font-weight:1000;
+      letter-spacing:.2px;
+    }
+    .off{
+      display:inline-flex;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(255,212,0,.28);
+      border:1px solid rgba(0,0,0,.08);
+      font-weight:1000;
+      font-size:12px;
+      white-space:nowrap;
+    }
+
+    /* IMPORTANT: botón siempre visible en todos los productos */
+    .add{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      width: 112px;
+      padding:10px 10px;
+      border-radius: 12px;
+      border:none;
+      cursor:pointer;
+      font-weight:1000;
+      background: linear-gradient(135deg, var(--yellow), var(--yellow2));
+      box-shadow: 0 10px 20px rgba(255,212,0,.22);
+    }
+    .add.alt{
+      background: #111827;
+      color:#fff;
+      box-shadow: 0 10px 20px rgba(17,24,39,.18);
+    }
+    .add:hover{transform: translateY(-1px)}
+    .add:active{transform: translateY(0px)}
+
+    /* ===== Cart bar (sticky bottom) ===== */
+    .cartbar{
+      position: fixed;
+      left:0; right:0;
+      bottom:0;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      border-top:1px solid var(--line);
+      box-shadow: 0 -12px 26px rgba(0,0,0,.10);
+      z-index:80;
+    }
+    .cartbar .row{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; flex-wrap:wrap;
+      padding:10px 0;
+    }
+    .cartInfo{
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+      font-size:13px;
+      color: rgba(17,24,39,.80);
+    }
+    .count{
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(200,16,46,.08);
+      border:1px solid rgba(200,16,46,.16);
+      font-weight:1000;
+      color: rgba(140,10,30,.95);
+    }
+
+    /* ===== Modal ===== */
+    .backdrop{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.40);
+      display:none;
+      z-index:90;
+      padding:14px;
+    }
+    .modal{
+      max-width: 860px;
+      margin: 50px auto;
+      background:#fff;
+      border-radius: 18px;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .mHead{
+      padding:12px 14px;
+      display:flex; justify-content:space-between; align-items:center;
+      border-bottom:1px solid var(--line);
+    }
+    .mBody{padding:12px 14px}
+    .mFoot{
+      padding:12px 14px;
+      border-top:1px solid var(--line);
+      display:flex; justify-content:space-between; align-items:flex-start;
+      gap:12px; flex-wrap:wrap;
+    }
+    .x{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius: 12px;
+      padding:8px 10px;
+      cursor:pointer;
+      font-weight:1000;
+    }
+    .list{display:grid; gap:10px}
+    .item{
+      border:1px solid var(--line);
+      border-radius: 14px;
+      padding:10px;
+      display:flex; justify-content:space-between; align-items:center;
+      gap:10px; flex-wrap:wrap;
+      background:#fff;
+    }
+    .qty{
+      display:flex; align-items:center; gap:8px;
+    }
+    .qty button{
+      width:36px; height:36px;
+      border-radius: 12px;
+      border:1px solid var(--line);
+      background:#fff;
+      cursor:pointer;
+      font-weight:1000;
+    }
+    .rm{
+      border-radius: 12px;
+      border:1px solid rgba(200,16,46,.18);
+      background: rgba(200,16,46,.08);
+      color: rgba(140,10,30,.95);
+      padding:9px 10px;
+      cursor:pointer;
+      font-weight:1000;
+    }
+
+    /* ===== WhatsApp float ===== */
+    .wa{
+      position:fixed;
+      right:16px;
+      bottom:84px;
+      z-index:85;
+      width:56px; height:56px;
+      border-radius: 18px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, #25D366, #1fb955);
+      border:1px solid rgba(255,255,255,.25);
+      box-shadow: 0 18px 40px rgba(0,0,0,.18);
+      cursor:pointer;
+    }
+    .wa svg{width:28px;height:28px; fill:#fff}
+
+    /* ===== Footer ===== */
+    footer{
+      padding: 18px 0 110px;
+      color: var(--muted);
+      font-size:12px;
+    }
+    .footerBox{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow2);
+      padding:14px;
+    }
+    .footerGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:12px;
+      align-items:start;
+    }
+    @media (max-width: 980px){ .footerGrid{grid-template-columns:1fr} }
+    .kpi{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;
+    }
+    .kpi .badge{box-shadow:none}
+
+    /* small helper */
+    .hide{display:none !important}
+  </style>
+</head>
+
+<body>
+
+  <!-- Utility bar -->
+  <div class="utility">
+    <div class="wrap">
+      <div class="row">
+        <div class="pill">📦 Entrega: <b>2 a 4 días hábiles</b> • 🚚 <b>Despacho GRATIS</b> (Gran Concepción)</div>
+        <div class="pill">💳 Pago contra entrega • Crédito <b>7 / 15 / 20 días</b> (sujeto a evaluación)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main header -->
+  <div class="header">
+    <div class="wrap">
+      <div class="row">
+        <!-- Brand + Improved Logo -->
+        <div class="brand" role="button" tabindex="0" onclick="go('#/inicio')">
+          <div class="logoBox" aria-label="Logo Mundo D&H">
+            <!-- LOGO MEJORADO (SVG) -->
+            <svg width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="dhG" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#FFD400"/>
+                  <stop offset="0.55" stop-color="#FF2D55"/>
+                  <stop offset="1" stop-color="#C8102E"/>
+                </linearGradient>
+              </defs>
+              <rect x="6" y="6" width="42" height="42" rx="14" fill="url(#dhG)"/>
+              <path d="M16 30c6-10 16-12 24-7" stroke="#fff" stroke-width="3.2" stroke-linecap="round" opacity=".9"/>
+              <path d="M18 37c7-4 15-4 20-1" stroke="#fff" stroke-width="3.2" stroke-linecap="round" opacity=".92"/>
+              <rect x="14" y="14" width="26" height="12" rx="6" fill="rgba(255,255,255,.88)"/>
+              <text x="27" y="23" text-anchor="middle" font-size="10.5" font-family="ui-sans-serif,system-ui" font-weight="1000" fill="#111827">MUNDO</text>
+              <text x="27" y="33" text-anchor="middle" font-size="12" font-family="ui-sans-serif,system-ui" font-weight="1000" fill="#111827">D&H</text>
+            </svg>
+          </div>
+          <div class="txt">
+            <b>Mundo D&H</b>
+            <span>Artículos • Distribución • Online</span>
+          </div>
+        </div>
+
+        <!-- Search -->
+        <div class="search" role="search">
+          <input id="q" placeholder="¿Qué producto estás buscando? (demo)" oninput="render()" />
+          <button aria-label="Buscar" onclick="render()">🔎</button>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+          <button class="btn" onclick="openCart()">🛒 Carrito <span class="muted" id="cartMini">$0</span></button>
+          <button class="btn primary" onclick="openWhatsAppGeneral()">Cotizar por WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category bar -->
+  <div class="catbar">
+    <div class="wrap">
+      <div class="row" id="catLinks">
+        <div class="catlink" data-route="#/inicio" onclick="go('#/inicio')">Inicio</div>
+        <div class="catlink" data-route="#/escolar" onclick="go('#/escolar')">Escolar</div>
+        <div class="catlink" data-route="#/oficina" onclick="go('#/oficina')">Oficina</div>
+        <div class="catlink" data-route="#/ferreteria" onclick="go('#/ferreteria')">Ferretería</div>
+        <div class="catlink" data-route="#/limpieza" onclick="go('#/limpieza')">Limpieza</div>
+        <div class="catlink" data-route="#/computacion" onclick="go('#/computacion')">Computación</div>
+        <div class="catlink" data-route="#/hogar" onclick="go('#/hogar')">Hogar</div>
+        <div class="catlink" data-route="#/ofertas" onclick="go('#/ofertas')">🔥 Ofertas</div>
+        <div class="catlink" data-route="#/credito" onclick="go('#/credito')">Crédito 7/15/20</div>
+        <div class="catlink" data-route="#/despacho" onclick="go('#/despacho')">Despacho</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap page">
+    <!-- HERO (solo en Inicio) -->
+    <section id="page-inicio">
+      <div class="hero">
+        <div class="heroMain">
+          <h1>Compra online en <span style="color:var(--red);">Mundo D&H</span> 💥</h1>
+          <p>
+            Catálogo <b>DEMO</b> por ahora (hasta que Dimerc entregue el catálogo real).
+            Mostramos <b>precio original</b> y aplicamos <b>15% OFF</b> automáticamente.
+          </p>
+
+          <div class="heroBadges">
+            <div class="badge">🚚 Despacho GRATIS</div>
+            <div class="badge">⏱ 2–4 días hábiles</div>
+            <div class="badge">💳 Contra entrega / Crédito</div>
+            <div class="badge">📍 Gran Concepción</div>
+          </div>
+
+          <div class="heroCtas">
+            <button class="btn primary" onclick="go('#/ofertas')">Ver ofertas</button>
+            <button class="btn" onclick="go('#/escolar')">Ir a Escolar</button>
+            <button class="btn" onclick="openCart()">Ver carrito</button>
+          </div>
+        </div>
+
+        <aside class="heroSide">
+          <b>📍 Cobertura</b>
+          <div class="mini">
+            Talcahuano • Concepción • Hualpén • San Pedro • Penco • Tomé • Lirquén y alrededores.
+          </div>
+          <b style="margin-top:12px">🧾 Pago</b>
+          <div class="mini">
+            Pago contra entrega + Crédito empresas 7/15/20 días (sujeto a evaluación).
+          </div>
+          <div style="margin-top:12px">
+            <button class="btn primary" style="width:100%" onclick="openWhatsAppGeneral()">Hablar por WhatsApp</button>
+          </div>
+        </aside>
+      </div>
+
+      <div class="titleRow">
+        <h2>Destacados (demo)</h2>
+        <small>Busca arriba o entra a una categoría</small>
+      </div>
+      <div class="grid" id="grid-destacados"></div>
+    </section>
+
+    <!-- Category pages -->
+    <section id="page-escolar" class="hide">
+      <div class="titleRow"><h2>Escolar</h2><small>Catálogo DEMO</small></div>
+      <div class="grid" id="grid-escolar"></div>
+    </section>
+
+    <section id="page-oficina" class="hide">
+      <div class="titleRow"><h2>Oficina</h2><small>Catálogo DEMO</small></div>
+      <div class="grid" id="grid-oficina"></div>
+    </section>
+
+    <section id="page-ferreteria" class="hide">
+      <div class="titleRow"><h2>Ferretería</h2><small>Catálogo DEMO</small></div>
+      <div class="grid" id="grid-ferreteria"></div>
+    </section>
+
+    <section id="page-limpieza" class="hide">
+      <div class="titleRow"><h2>Limpieza</h2><small>Catálogo DEMO</small></div>
+      <div class="grid" id="grid-limpieza"></div>
+    </section>
+
+    <section id="page-computacion" class="hide">
+      <div class="titleRow"><h2>Computación</h2><small>Catálogo DEMO</small></div>
+      <div class="grid" id="grid-computacion"></div>
+    </section>
+
+    <section id="page-hogar" class="hide">
+      <div class="titleRow"><h2>Hogar</h2><small>Catálogo DEMO</small></div>
+      <div class="grid" id="grid-hogar"></div>
+    </section>
+
+    <section id="page-ofertas" class="hide">
+      <div class="titleRow"><h2>🔥 Ofertas (15% OFF)</h2><small>Precio original + descuento aplicado</small></div>
+      <div class="grid" id="grid-ofertas"></div>
+    </section>
+
+    <!-- Crédito -->
+    <section id="page-credito" class="hide">
+      <div class="titleRow"><h2>Crédito 7 / 15 / 20 días</h2><small>Sujeto a evaluación comercial</small></div>
+      <div style="background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow2);padding:14px;">
+        <p style="margin:0;color:rgba(17,24,39,.78);line-height:1.45;">
+          Si eres empresa y necesitas crédito, escríbenos por WhatsApp. Te pediremos los datos básicos
+          para evaluación (RUT, razón social, dirección y estimación de compra).
+        </p>
+        <div style="height:10px"></div>
+        <button class="btn primary" onclick="sendCreditRequest()">Solicitar crédito por WhatsApp</button>
+      </div>
+    </section>
+
+    <!-- Despacho -->
+    <section id="page-despacho" class="hide">
+      <div class="titleRow"><h2>Despacho</h2><small>Solo online • Entrega a local o domicilio</small></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+        <div style="background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow2);padding:14px;">
+          <b>🚚 Despacho GRATIS</b>
+          <p style="margin:8px 0 0;color:rgba(17,24,39,.78);line-height:1.4;font-size:13px;">En todas las comunas de cobertura (Gran Concepción).</p>
+        </div>
+        <div style="background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow2);padding:14px;">
+          <b>⏱ Entrega 2 a 4 días hábiles</b>
+          <p style="margin:8px 0 0;color:rgba(17,24,39,.78);line-height:1.4;font-size:13px;">Plazo estimado según coordinación y disponibilidad.</p>
+        </div>
+        <div style="background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow2);padding:14px;">
+          <b>📍 Zonas</b>
+          <p style="margin:8px 0 0;color:rgba(17,24,39,.78);line-height:1.4;font-size:13px;">
+            Talcahuano • Concepción • Hualpén • San Pedro • Penco • Tomé • Lirquén y alrededores.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footerBox">
+        <div class="footerGrid">
+          <div>
+            <b style="color:rgba(17,24,39,.85)">Mundo D&H</b><br/>
+            <span>Artículos Escolar, Oficina, Ferretería, Limpieza, Computación y Hogar.</span><br/>
+            <span>* Catálogo DEMO por ahora. Precios referenciales.</span>
+            <div class="kpi">
+              <div class="badge">🚚 Despacho GRATIS</div>
+              <div class="badge">⏱ 2–4 días</div>
+              <div class="badge">🔥 15% OFF</div>
+            </div>
+          </div>
+          <div style="text-align:right">
+            <span>© <span id="year"></span> Mundo D&H</span><br/>
+            <span>Gran Concepción • Chile</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- WhatsApp floating -->
+  <button class="wa" onclick="openWhatsAppGeneral()" aria-label="Abrir WhatsApp" title="Abrir WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M19.11 17.44c-.29-.14-1.72-.85-1.99-.95-.27-.1-.47-.14-.67.14-.2.29-.77.95-.95 1.15-.17.2-.35.22-.64.07-.29-.14-1.23-.45-2.34-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.35.44-.52.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.52-.07-.14-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.29-1.04 1.01-1.04 2.46 0 1.45 1.06 2.85 1.2 3.05.14.2 2.09 3.19 5.07 4.47.71.31 1.27.49 1.7.63.71.23 1.35.2 1.86.12.57-.09 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.57-.35zM16 2.67C8.64 2.67 2.67 8.64 2.67 16c0 2.34.61 4.53 1.68 6.43L3.2 29.33l7.07-1.85A13.25 13.25 0 0 0 16 29.33c7.36 0 13.33-5.97 13.33-13.33S23.36 2.67 16 2.67zm0 24.03c-2.11 0-4.07-.6-5.74-1.64l-.41-.25-4.2 1.1 1.12-4.1-.27-.42A10.64 10.64 0 0 1 5.33 16C5.33 10.13 10.13 5.33 16 5.33S26.67 10.13 26.67 16 21.87 26.7 16 26.7z"/>
+    </svg>
+  </button>
+
+  <!-- Cart bar -->
+  <div class="cartbar" role="region" aria-label="Carrito de compras">
+    <div class="wrap">
+      <div class="row">
+        <div class="cartInfo">
+          <span class="count" id="cartCount">0 ítems</span>
+          <span>Total: <b id="cartTotal">$0</b> <span class="muted">(CLP)</span></span>
+          <span class="muted">• 15% OFF aplicado</span>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn" onclick="openCart()">Ver carrito</button>
+          <button class="btn primary" onclick="checkoutWhatsApp()">Enviar pedido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart modal -->
+  <div id="backdrop" class="backdrop" onclick="closeCartIfBackdrop(event)">
+    <div class="modal" role="dialog" aria-label="Carrito">
+      <div class="mHead">
+        <b>Tu carrito</b>
+        <button class="x" onclick="closeCart()">Cerrar ✕</button>
+      </div>
+      <div class="mBody">
+        <div class="list" id="cartList"></div>
+      </div>
+      <div class="mFoot">
+        <div>
+          <div class="muted" style="font-size:12px;">Subtotal (con 15% OFF aplicado)</div>
+          <div style="font-size:18px;font-weight:1000" id="cartTotalModal">$0</div>
+          <div class="muted" style="font-size:12px;max-width:60ch;margin-top:6px;">
+            * Ítems “Cotizar” no suman al total. Se coordinan por WhatsApp.
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn" onclick="clearCart()">Vaciar</button>
+          <button class="btn primary" onclick="checkoutWhatsApp()">Enviar pedido por WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // =========================
+    // CONFIG
+    // =========================
+    const WHATSAPP_NUMERO = "56900000000"; // <-- CAMBIA A TU NÚMERO REAL (formato 569XXXXXXXX)
+    const DISCOUNT_PERCENT = 15;
+
+    // =========================
+    // DATA (DEMO) - agrega/edita aquí
+    // cat: Escolar, Oficina, Ferretería, Limpieza, Computación, Hogar
+    // price: precio base (sin descuento)
+    // price=0 => Cotizar
+    // =========================
+    const PRODUCTS = [
+      // ESCOLAR
+      {id:"e1", name:"Cuaderno universitario 100 hojas", code:"MDH-001", cat:"Escolar", price:2290},
+      {id:"e2", name:"Lápiz grafito HB (x12)", code:"MDH-002", cat:"Escolar", price:1790},
+      {id:"e3", name:"Tijera escolar punta roma", code:"MDH-003", cat:"Escolar", price:890},
+      {id:"e4", name:"Pegamento en barra 40g", code:"MDH-004", cat:"Escolar", price:790},
+
+      // OFICINA
+      {id:"o1", name:"Resma papel carta 500 hojas 75g", code:"MDH-101", cat:"Oficina", price:5590},
+      {id:"o2", name:"Archivador oficio lomo ancho", code:"MDH-102", cat:"Oficina", price:3490},
+      {id:"o3", name:"Set post-it / notas adhesivas", code:"MDH-103", cat:"Oficina", price:1290},
+      {id:"o4", name:"Tóner / tinta (cotizar)", code:"MDH-104", cat:"Oficina", price:0},
+
+      // FERRETERÍA
+      {id:"f1", name:"Cinta aisladora 10m", code:"MDH-201", cat:"Ferretería", price:990},
+      {id:"f2", name:"Cutter reforzado", code:"MDH-202", cat:"Ferretería", price:1490},
+      {id:"f3", name:"Cinta adhesiva transparente + dispensador", code:"MDH-203", cat:"Ferretería", price:1790},
+
+      // LIMPIEZA
+      {id:"l1", name:"Paño microfibra (x3)", code:"MDH-301", cat:"Limpieza", price:1290},
+      {id:"l2", name:"Cloro 1L", code:"MDH-302", cat:"Limpieza", price:990},
+      {id:"l3", name:"Detergente 1L", code:"MDH-303", cat:"Limpieza", price:1390},
+
+      // COMPUTACIÓN
+      {id:"c1", name:"Mouse USB", code:"MDH-401", cat:"Computación", price:4490},
+      {id:"c2", name:"Teclado USB", code:"MDH-402", cat:"Computación", price:8990},
+      {id:"c3", name:"Pilas AA (x4)", code:"MDH-403", cat:"Computación", price:1990},
+
+      // HOGAR
+      {id:"h1", name:"Bolsas basura 10 un.", code:"MDH-501", cat:"Hogar", price:1290},
+      {id:"h2", name:"Toalla de papel", code:"MDH-502", cat:"Hogar", price:1790},
+      {id:"h3", name:"Vasos desechables 50 un.", code:"MDH-503", cat:"Hogar", price:1490},
+    ];
+
+    // =========================
+    // CART (localStorage)
+    // =========================
+    const cart = new Map(); // id -> qty
+
+    function loadCart(){
+      try{
+        const raw = localStorage.getItem("mdh_cart");
+        if(!raw) return;
+        const obj = JSON.parse(raw);
+        Object.keys(obj).forEach(id=>{
+          const q = Number(obj[id]||0);
+          if(q>0) cart.set(id,q);
+        });
+      }catch(e){}
+    }
+    function saveCart(){
+      const obj = {};
+      cart.forEach((q,id)=>obj[id]=q);
+      localStorage.setItem("mdh_cart", JSON.stringify(obj));
+    }
+
+    function moneyCLP(n){
+      const x = Math.round(n || 0);
+      return "$" + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+    function discounted(price){
+      if(!price) return 0;
+      return price * (1 - DISCOUNT_PERCENT/100);
+    }
+
+    function addToCart(id){
+      const qty = cart.get(id) || 0;
+      cart.set(id, qty + 1);
+      saveCart();
+      updateCartUI();
+      renderCartModal();
+    }
+    function removeOne(id){
+      const qty = cart.get(id) || 0;
+      if(qty<=1) cart.delete(id);
+      else cart.set(id, qty-1);
+      saveCart();
+      updateCartUI();
+      renderCartModal();
+    }
+    function removeAll(id){
+      cart.delete(id);
+      saveCart();
+      updateCartUI();
+      renderCartModal();
+    }
+    function clearCart(){
+      cart.clear();
+      saveCart();
+      updateCartUI();
+      renderCartModal();
+    }
+
+    function cartTotals(){
+      let items=0, total=0;
+      cart.forEach((qty,id)=>{
+        const p = PRODUCTS.find(x=>x.id===id);
+        if(!p) return;
+        items += qty;
+        total += (discounted(p.price)||0)*qty; // cotizar no suma
+      });
+      return {items,total};
+    }
+
+    function updateCartUI(){
+      const {items,total} = cartTotals();
+      document.getElementById("cartCount").textContent = items + (items===1 ? " ítem" : " ítems");
+      document.getElementById("cartTotal").textContent = moneyCLP(total);
+      document.getElementById("cartTotalModal").textContent = moneyCLP(total);
+      document.getElementById("cartMini").textContent = moneyCLP(total);
+    }
+
+    // =========================
+    // RENDER PRODUCTS
+    // =========================
+    function cardHTML(p){
+      const hasPrice = (p.price && p.price>0);
+      const was = hasPrice ? moneyCLP(p.price) : "Cotizar";
+      const now = hasPrice ? moneyCLP(discounted(p.price)) : "Cotizar";
+      const btnText = hasPrice ? "Agregar" : "Cotizar";
+      const btnClass = hasPrice ? "add" : "add alt";
+
+      return `
+        <div class="p">
+          <div class="pImg" aria-hidden="true">
+            <!-- placeholder imagen demo -->
+            <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="16" width="66" height="54" rx="12" fill="rgba(255,255,255,.85)" stroke="rgba(17,24,39,.12)"/>
+              <path d="M22 50c10-12 23-14 42-7" stroke="rgba(200,16,46,.55)" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="30" cy="36" r="6" fill="rgba(255,212,0,.85)"/>
+            </svg>
+          </div>
+          <div class="pBody">
+            <div class="pMeta">
+              <span><b>${p.cat}</b></span>
+              <span>Código: ${p.code}</span>
+            </div>
+            <h3 class="pName">${p.name}</h3>
+
+            <div class="price">
+              <div>
+                ${hasPrice ? `<div class="was">${was}</div>` : `<div class="was" style="text-decoration:none">Precio</div>`}
+                <div class="now">${now}</div>
+                <div class="muted" style="font-size:12px;margin-top:2px">
+                  ${hasPrice ? `-${DISCOUNT_PERCENT}% OFF aplicado` : "Se coordina por WhatsApp"}
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+                <span class="off">${hasPrice ? `-${DISCOUNT_PERCENT}%` : "COTIZAR"}</span>
+                <button class="${btnClass}" data-id="${p.id}" data-hasprice="${hasPrice ? "1":"0"}">${btnText}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderGrid(elId, items){
+      const el = document.getElementById(elId);
+      if(!el) return;
+      el.innerHTML = items.map(cardHTML).join("");
+      // bind buttons
+      el.querySelectorAll("button.add").forEach(btn=>{
+        btn.addEventListener("click", ()=>{
+          const id = btn.getAttribute("data-id");
+          const hasPrice = btn.getAttribute("data-hasprice")==="1";
+          const p = PRODUCTS.find(x=>x.id===id);
+          if(!p) return;
+
+          if(hasPrice){
+            addToCart(id);
+          }else{
+            const msg = `Hola Mundo D&H 👋\nQuiero cotizar:\n- ${p.name} (código ${p.code})\n\n📍 Comuna:\n📦 Cantidad:\n¿Me confirman precio y disponibilidad?`;
+            openWhatsApp(msg);
+          }
+        });
+      });
+    }
+
+    function currentRoute(){
+      const h = location.hash || "#/inicio";
+      const parts = h.split("?");
+      return parts[0];
+    }
+
+    function activeCat(route){
+      document.querySelectorAll(".catlink").forEach(x=>{
+        x.classList.toggle("active", x.getAttribute("data-route")===route);
+      });
+    }
+
+    function showPage(route){
+      // hide all
+      const pages = ["inicio","escolar","oficina","ferreteria","limpieza","computacion","hogar","ofertas","credito","despacho"];
+      pages.forEach(p=> document.getElementById("page-"+p).classList.add("hide"));
+
+      // show selected
+      const key = route.replace("#/","") || "inicio";
+      const id = "page-" + (pages.includes(key) ? key : "inicio");
+      document.getElementById(id).classList.remove("hide");
+    }
+
+    function render(){
+      const q = (document.getElementById("q").value || "").trim().toLowerCase();
+      const route = currentRoute();
+
+      const filterByQ = (arr)=> arr.filter(p=>{
+        if(!q) return true;
+        return (p.name.toLowerCase().includes(q) || p.code.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q));
+      });
+
+      // destacados (mezcla)
+      const featured = filterByQ(PRODUCTS).slice(0,10);
+      renderGrid("grid-destacados", featured);
+
+      // categories
+      renderGrid("grid-escolar", filterByQ(PRODUCTS.filter(p=>p.cat==="Escolar")));
+      renderGrid("grid-oficina", filterByQ(PRODUCTS.filter(p=>p.cat==="Oficina")));
+      renderGrid("grid-ferreteria", filterByQ(PRODUCTS.filter(p=>p.cat==="Ferretería")));
+      renderGrid("grid-limpieza", filterByQ(PRODUCTS.filter(p=>p.cat==="Limpieza")));
+      renderGrid("grid-computacion", filterByQ(PRODUCTS.filter(p=>p.cat==="Computación")));
+      renderGrid("grid-hogar", filterByQ(PRODUCTS.filter(p=>p.cat==="Hogar")));
+
+      // ofertas: todo con precio (para que se vea como “ofertas” real)
+      renderGrid("grid-ofertas", filterByQ(PRODUCTS.filter(p=>p.price && p.price>0)));
+
+      activeCat(route);
+      showPage(route);
+      updateCartUI();
+    }
+
+    // =========================
+    // ROUTER
+    // =========================
+    function go(hash){
+      if(location.hash === hash) { render(); return; }
+      location.hash = hash;
+    }
+    window.addEventListener("hashchange", render);
+
+    // =========================
+    // CART MODAL
+    // =========================
+    function openCart(){
+      document.getElementById("backdrop").style.display = "block";
+      renderCartModal();
+    }
+    function closeCart(){
+      document.getElementById("backdrop").style.display = "none";
+    }
+    function closeCartIfBackdrop(e){
+      if(e.target && e.target.id==="backdrop") closeCart();
+    }
+
+    function renderCartModal(){
+      const list = document.getElementById("cartList");
+      if(cart.size===0){
+        list.innerHTML = `<div class="muted">Tu carrito está vacío. Agrega productos desde las categorías.</div>`;
+        updateCartUI();
+        return;
+      }
+
+      let html = "";
+      cart.forEach((qty,id)=>{
+        const p = PRODUCTS.find(x=>x.id===id);
+        if(!p) return;
+        const hasPrice = (p.price && p.price>0);
+        const unit = hasPrice ? discounted(p.price) : 0;
+        const lineTotal = unit*qty;
+
+        html += `
+          <div class="item">
+            <div>
+              <b>${p.name}</b>
+              <div class="muted" style="font-size:12px;margin-top:3px">
+                ${p.cat} • Código ${p.code} • ${hasPrice ? `Unit: ${moneyCLP(unit)}` : "Cotizar por WhatsApp"}
+              </div>
+            </div>
+
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+              <div class="qty">
+                <button onclick="removeOne('${p.id}')">−</button>
+                <div style="min-width:26px;text-align:center;font-weight:1000">${qty}</div>
+                <button onclick="addToCart('${p.id}')">+</button>
+              </div>
+
+              <div style="min-width:120px;text-align:right;font-weight:1000">
+                ${hasPrice ? moneyCLP(lineTotal) : "Cotizar"}
+              </div>
+
+              <button class="rm" onclick="removeAll('${p.id}')">Quitar</button>
+            </div>
+          </div>
+        `;
+      });
+
+      list.innerHTML = html;
+      updateCartUI();
+    }
+
+    // =========================
+    // WHATSAPP
+    // =========================
+    function openWhatsApp(message){
+      const url = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    function openWhatsAppGeneral(){
+      const msg =
+`Hola Mundo D&H 👋
+Quiero cotizar / comprar artículos.
+
+📍 Comuna (Talcahuano / alrededores):
+🚚 Despacho GRATIS • Entrega 2 a 4 días hábiles
+¿Me ayudan con disponibilidad y precios?`;
+      openWhatsApp(msg);
+    }
+
+    function checkoutWhatsApp(){
+      if(cart.size===0){
+        alert("Agrega productos al carrito primero.");
+        return;
+      }
+
+      let lines = [];
+      cart.forEach((qty,id)=>{
+        const p = PRODUCTS.find(x=>x.id===id);
+        if(!p) return;
+        const hasPrice = (p.price && p.price>0);
+        if(hasPrice){
+          lines.push(`- ${p.name} (x${qty}) — ${moneyCLP(discounted(p.price))} c/u (antes ${moneyCLP(p.price)})`);
+        }else{
+          lines.push(`- ${p.name} (x${qty}) — COTIZAR`);
+        }
+      });
+
+      const {total} = cartTotals();
+      const msg =
+`Hola Mundo D&H 👋
+Quiero hacer este pedido (15% OFF aplicado):
+
+${lines.join("\n")}
+
+Subtotal (solo ítems con precio): ${moneyCLP(total)} CLP
+
+📍 Comuna:
+📌 Dirección (local o domicilio):
+🕒 Horario preferido:
+💳 Pago: contra entrega / crédito 7-15-20 (si aplica)
+🧾 Boleta o factura:`;
+
+      openWhatsApp(msg);
+    }
+
+    function sendCreditRequest(){
+      const msg =
+`Solicitud de crédito — Mundo D&H
+
+Nombre empresa/persona:
+RUT:
+Contacto:
+Teléfono:
+Dirección:
+Plazo solicitado: 7 / 15 / 20 días
+
+Detalle de compra (productos y frecuencia):
+
+*Crédito sujeto a evaluación comercial.`;
+      openWhatsApp(msg);
+    }
+
+    // init
+    document.getElementById("year").textContent = new Date().getFullYear();
+    loadCart();
+    if(!location.hash) location.hash = "#/inicio";
+    render();
+  </script>
+</body>
+</html>
