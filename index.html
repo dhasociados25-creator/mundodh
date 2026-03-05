@@ -1,494 +1,497 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Mundo D&H | Tienda Online</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mundo D&H | Empresas</title>
+  <meta name="description" content="Mundo D&H Empresas: solicita crédito y compras para tu empresa. Evaluación comercial, entrega 2 a 4 días hábiles. Gran Concepción." />
+  <meta name="theme-color" content="#c8102e" />
 
-<meta name="description" content="Mundo D&H tienda online. Escolar, oficina, ferretería y más. Gran Concepción."/>
-<meta name="theme-color" content="#c8102e"/>
+  <style>
+    :root{
+      --paper:#ffffff;
+      --ink:#111827;
+      --muted:#6b7280;
+      --line:#e5e7eb;
 
-<style>
+      --red:#c8102e;
+      --red2:#ff2d55;
+      --yellow:#ffd400;
+      --yellow2:#ffea70;
 
-:root{
---paper:#ffffff;
---ink:#111827;
---muted:#6b7280;
---line:#e5e7eb;
+      --bg:#f7f7fb;
+      --shadow: 0 10px 26px rgba(0,0,0,.08);
+      --shadow2: 0 6px 16px rgba(0,0,0,.08);
 
---red:#c8102e;
---red2:#ff2d55;
---yellow:#ffd400;
---yellow2:#ffea70;
+      --max:1200px;
+      --r:16px;
+    }
 
---bg:#f7f7fb;
---card:#ffffff;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+      color:var(--ink);
+      background: var(--bg);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 14px}
 
---shadow:0 10px 26px rgba(0,0,0,.08);
---shadow2:0 6px 16px rgba(0,0,0,.08);
+    /* ===== Utility bar ===== */
+    .utility{
+      background: linear-gradient(90deg, #0b2a55, #0b3a75);
+      color:#fff;
+      font-size:12px;
+    }
+    .utility .row{
+      display:flex; gap:10px; align-items:center; justify-content:space-between;
+      padding:8px 0;
+      flex-wrap:wrap;
+    }
+    .utility .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px;
+      background: rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;
+      white-space:nowrap;
+    }
 
---max:1200px;
---r:16px;
-}
+    /* ===== Header ===== */
+    .header{
+      background: #fff;
+      border-bottom:1px solid var(--line);
+      position:sticky;
+      top:0;
+      z-index:50;
+    }
+    .header .row{
+      display:grid;
+      grid-template-columns: 280px 1fr 260px;
+      gap:12px;
+      align-items:center;
+      padding:12px 0;
+    }
+    @media (max-width: 980px){
+      .header .row{grid-template-columns: 1fr; }
+    }
 
-*{box-sizing:border-box}
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      min-width: 260px;
+      cursor:pointer;
+    }
+    .brand .logoBox{
+      width:54px;height:54px;border-radius:14px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow2);
+      display:grid; place-items:center;
+      overflow:hidden;
+    }
+    .brand .txt{line-height:1.1}
+    .brand .txt b{display:block;font-size:16px}
+    .brand .txt span{display:block;font-size:12px;color:var(--muted)}
 
-body{
-margin:0;
-font-family:system-ui;
-color:var(--ink);
-background:var(--bg);
-}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      border-radius: 12px;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      background:#fff;
+      cursor:pointer;
+      font-weight:900;
+      box-shadow: 0 6px 16px rgba(0,0,0,.06);
+      white-space:nowrap;
+    }
+    .btn.primary{
+      border:none;
+      background: linear-gradient(135deg, var(--red), var(--red2));
+      color:#fff;
+      box-shadow: 0 10px 24px rgba(200,16,46,.22);
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn:active{transform: translateY(0px)}
 
-.wrap{
-max-width:var(--max);
-margin:auto;
-padding:0 14px;
-}
+    .actions{display:flex; gap:10px; justify-content:flex-end; align-items:center; flex-wrap:wrap;}
+    .muted{color:var(--muted)}
 
-a{text-decoration:none;color:inherit}
+    /* ===== Category bar ===== */
+    .catbar{
+      background: linear-gradient(90deg, var(--red), #a60f25);
+      color:#fff;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .catbar .row{
+      display:flex; gap:10px; align-items:center;
+      padding:10px 0;
+      overflow:auto;
+      scrollbar-width: thin;
+    }
+    .catlink{
+      padding:10px 12px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.20);
+      background: rgba(255,255,255,.10);
+      font-weight:1000;
+      font-size:13px;
+      white-space:nowrap;
+    }
+    .catlink.active{
+      background: linear-gradient(135deg, var(--yellow), var(--yellow2));
+      color:#111;
+      border-color: rgba(0,0,0,.08);
+    }
 
-/* Utility bar */
+    /* ===== Page ===== */
+    .page{padding:16px 0 80px;}
+    .card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow: var(--shadow);
+      padding:16px;
+    }
+    h1{margin:0; font-size:26px; letter-spacing:-.3px;}
+    p{margin:10px 0 0; color: rgba(17,24,39,.78); line-height:1.45;}
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:14px;
+    }
+    @media (max-width: 980px){ .grid{grid-template-columns: 1fr;} }
 
-.utility{
-background:#0b2a55;
-color:white;
-font-size:12px;
-}
+    .field{display:flex; flex-direction:column; gap:6px;}
+    label{font-size:12px; font-weight:900; color: rgba(17,24,39,.85);}
+    input, select, textarea{
+      border:1px solid var(--line);
+      border-radius: 12px;
+      padding:12px;
+      outline:none;
+      font-size:14px;
+      background:#fff;
+    }
+    textarea{min-height:110px; resize:vertical;}
+    .hint{font-size:12px; color: rgba(17,24,39,.62);}
 
-.utility .row{
-display:flex;
-justify-content:space-between;
-flex-wrap:wrap;
-padding:8px 0;
-gap:10px;
-}
+    .kpiRow{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .badge{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-weight:900;
+      font-size:12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,.06);
+      white-space:nowrap;
+    }
 
-.pill{
-padding:6px 10px;
-border-radius:999px;
-background:rgba(255,255,255,.15);
-}
-
-/* Header */
-
-.header{
-background:white;
-border-bottom:1px solid var(--line);
-position:sticky;
-top:0;
-z-index:50;
-}
-
-.header .row{
-display:grid;
-grid-template-columns:260px 1fr 320px;
-gap:12px;
-align-items:center;
-padding:12px 0;
-}
-
-.brand{
-display:flex;
-align-items:center;
-gap:10px;
-cursor:pointer;
-}
-
-.logoBox{
-width:54px;
-height:54px;
-border-radius:14px;
-border:1px solid var(--line);
-display:grid;
-place-items:center;
-overflow:hidden;
-background:white;
-}
-
-.brand b{
-font-size:16px;
-}
-
-.brand span{
-font-size:12px;
-color:var(--muted);
-}
-
-/* Search */
-
-.search{
-display:flex;
-border:2px solid rgba(200,16,46,.14);
-border-radius:12px;
-overflow:hidden;
-background:white;
-}
-
-.search input{
-border:none;
-padding:12px;
-width:100%;
-outline:none;
-}
-
-.search button{
-background:var(--yellow);
-border:none;
-padding:0 18px;
-font-weight:bold;
-cursor:pointer;
-}
-
-/* Actions */
-
-.actions{
-display:flex;
-gap:10px;
-justify-content:flex-end;
-flex-wrap:wrap;
-}
-
-.btn{
-padding:10px 12px;
-border-radius:12px;
-border:1px solid var(--line);
-background:white;
-cursor:pointer;
-font-weight:bold;
-}
-
-.btn.primary{
-background:linear-gradient(135deg,var(--red),var(--red2));
-color:white;
-border:none;
-}
-
-/* Category bar */
-
-.catbar{
-background:var(--red);
-color:white;
-}
-
-.catbar .row{
-display:flex;
-gap:10px;
-padding:10px 0;
-overflow:auto;
-}
-
-.catlink{
-padding:10px 12px;
-border-radius:12px;
-background:rgba(255,255,255,.15);
-font-size:13px;
-cursor:pointer;
-white-space:nowrap;
-}
-
-.catlink:hover{
-background:rgba(255,255,255,.22);
-}
-
-/* Hero */
-
-.hero{
-display:grid;
-grid-template-columns:1.4fr .6fr;
-gap:12px;
-margin-top:16px;
-}
-
-.heroMain{
-background:white;
-border:1px solid var(--line);
-border-radius:18px;
-padding:18px;
-}
-
-.heroMain h1{
-margin:0;
-font-size:32px;
-}
-
-.heroBadges{
-display:flex;
-gap:10px;
-margin-top:12px;
-flex-wrap:wrap;
-}
-
-.badge{
-padding:8px 10px;
-border-radius:999px;
-border:1px solid var(--line);
-background:white;
-font-size:12px;
-}
-
-.heroCtas{
-display:flex;
-gap:10px;
-margin-top:14px;
-flex-wrap:wrap;
-}
-
-.heroSide{
-background:white;
-border:1px solid var(--line);
-border-radius:18px;
-padding:16px;
-}
-
-/* Products */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:12px;
-margin-top:16px;
-}
-
-.p{
-background:white;
-border:1px solid var(--line);
-border-radius:16px;
-overflow:hidden;
-display:flex;
-flex-direction:column;
-}
-
-.pImg{
-height:150px;
-display:grid;
-place-items:center;
-background:#f3f4f6;
-}
-
-.pBody{
-padding:12px;
-display:flex;
-flex-direction:column;
-gap:8px;
-flex:1;
-}
-
-.pName{
-font-size:13px;
-font-weight:bold;
-}
-
-.price{
-display:flex;
-justify-content:space-between;
-align-items:flex-end;
-margin-top:auto;
-padding-top:10px;
-border-top:1px solid var(--line);
-}
-
-.now{
-font-size:15px;
-font-weight:900;
-}
-
-.add{
-background:var(--yellow);
-border:none;
-border-radius:12px;
-padding:10px;
-cursor:pointer;
-font-weight:bold;
-}
-
-/* Cart bar */
-
-.cartbar{
-position:fixed;
-bottom:0;
-left:0;
-right:0;
-background:white;
-border-top:1px solid var(--line);
-padding:10px 0;
-}
-
-.cartbar .row{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:10px;
-flex-wrap:wrap;
-}
-
-/* Footer */
-
-footer{
-padding:20px 0 120px;
-font-size:12px;
-color:var(--muted);
-}
-
-.footerBox{
-background:white;
-border:1px solid var(--line);
-border-radius:18px;
-padding:14px;
-}
-
-@media (max-width: 980px){
-  .header .row{grid-template-columns:1fr}
-  .hero{grid-template-columns:1fr}
-  .grid{grid-template-columns:repeat(2,1fr)}
-}
-
-</style>
+    footer{
+      padding: 18px 0 40px;
+      color: var(--muted);
+      font-size:12px;
+    }
+    .footerBox{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow: var(--shadow2);
+      padding:14px;
+    }
+  </style>
 </head>
 
 <body>
-
-<div class="utility">
-  <div class="wrap">
-    <div class="row">
-      <div class="pill">Entrega 2 a 4 días hábiles • Despacho GRATIS (Gran Concepción)</div>
-      <div class="pill">Pago contra entrega • Crédito 7 / 15 / 20 días</div>
-    </div>
-  </div>
-</div>
-
-<div class="header">
-  <div class="wrap">
-    <div class="row">
-
-      <!-- ✅ Marca: click vuelve a inicio -->
-      <a class="brand" href="index.html" aria-label="Ir al inicio">
-        <div class="logoBox">
-          <img src="logotipo.png" width="40" alt="Logo Mundo D&H">
-        </div>
-        <div>
-          <b>Mundo D&H</b>
-          <span>Distribución Online</span>
-        </div>
-      </a>
-
-      <div class="search">
-        <input placeholder="Buscar producto"/>
-        <button>Buscar</button>
+  <!-- Utility bar -->
+  <div class="utility">
+    <div class="wrap">
+      <div class="row">
+        <div class="pill">📦 Entrega: <b>2 a 4 días hábiles</b> • 🚚 <b>Despacho GRATIS</b> (Gran Concepción)</div>
+        <div class="pill">💳 Pago contra entrega • Crédito <b>7 / 15 / 20 días</b> (sujeto a evaluación)</div>
       </div>
+    </div>
+  </div>
 
-      <div class="actions">
-        <button class="btn">Carrito</button>
-        <a class="btn" href="empresas.html">Empresas</a> <!-- ✅ NUEVO -->
-        <button class="btn primary">Cotizar</button>
+  <!-- Header -->
+  <div class="header">
+    <div class="wrap">
+      <div class="row">
+        <!-- Brand -->
+        <div class="brand" onclick="window.location.href='./#/inicio'" role="button" tabindex="0" aria-label="Volver al inicio">
+          <div class="logoBox" aria-label="Logo Mundo D&H">
+            <!-- Opción A: tu logo como imagen -->
+            <!-- Cambia la ruta si lo tienes en otra carpeta -->
+            <img src="logotipo.png" alt="Mundo D&H" style="width:44px;height:44px;object-fit:contain" onerror="this.style.display='none';document.getElementById('fallbackLogo').style.display='block';" />
+            <!-- Opción B: fallback SVG si no existe logotipo.png -->
+            <svg id="fallbackLogo" style="display:none" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="dhG" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#FFD400"/>
+                  <stop offset="0.55" stop-color="#FF2D55"/>
+                  <stop offset="1" stop-color="#C8102E"/>
+                </linearGradient>
+              </defs>
+              <rect x="6" y="6" width="42" height="42" rx="14" fill="url(#dhG)"/>
+              <rect x="14" y="14" width="26" height="12" rx="6" fill="rgba(255,255,255,.88)"/>
+              <text x="27" y="23" text-anchor="middle" font-size="10.5" font-family="ui-sans-serif,system-ui" font-weight="1000" fill="#111827">MUNDO</text>
+              <text x="27" y="33" text-anchor="middle" font-size="12" font-family="ui-sans-serif,system-ui" font-weight="1000" fill="#111827">D&H</text>
+            </svg>
+          </div>
+          <div class="txt">
+            <b>Mundo D&H</b>
+            <span>Empresas • Crédito • Distribución</span>
+          </div>
+        </div>
+
+        <!-- Middle (simple note instead of search) -->
+        <div class="card" style="box-shadow:none;border-radius:12px;padding:12px;border:1px dashed rgba(200,16,46,.25);background:rgba(200,16,46,.04)">
+          <b style="color:rgba(17,24,39,.88)">Área Empresas</b>
+          <div class="muted" style="font-size:12px;margin-top:4px">
+            Completa el formulario y enviamos tu solicitud por WhatsApp para evaluación comercial.
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+          <a class="btn" href="./#/inicio">← Volver a la tienda</a>
+          <button class="btn primary" onclick="openWhatsAppGeneral()">Hablar por WhatsApp</button>
+        </div>
       </div>
-
     </div>
   </div>
-</div>
 
-<div class="catbar">
-  <div class="wrap">
-    <div class="row">
-
-      <div class="catlink">Inicio</div>
-      <div class="catlink">Escolar</div>
-      <div class="catlink">Oficina</div>
-      <div class="catlink">Ferretería</div>
-      <div class="catlink">Limpieza</div>
-      <div class="catlink">Computación</div>
-      <div class="catlink">Hogar</div>
-      <div class="catlink">Ofertas</div>
-
-      <!-- ✅ NUEVO LINK EMPRESAS -->
-      <a class="catlink" href="empresas.html">Empresas</a>
-
+  <!-- Category bar -->
+  <div class="catbar">
+    <div class="wrap">
+      <div class="row">
+        <a class="catlink" href="./#/inicio">Inicio</a>
+        <a class="catlink" href="./#/ofertas">Ofertas</a>
+        <a class="catlink" href="./#/credito">Crédito 7/15/20</a>
+        <span class="catlink active" aria-current="page">Empresas</span>
+        <a class="catlink" href="./#/despacho">Despacho</a>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="wrap">
-
-  <section class="hero">
-
-    <div class="heroMain">
-      <h1>Compra online en Mundo D&H</h1>
-
+  <div class="wrap page">
+    <div class="card">
+      <h1>Registro / Solicitud para Empresas</h1>
       <p>
-        Catálogo DEMO hasta recibir el catálogo oficial.
+        Si compras para tu empresa o institución, puedes pedir <b>crédito 7 / 15 / 20 días</b> (sujeto a evaluación) y coordinación de entregas.
       </p>
 
-      <div class="heroBadges">
-        <div class="badge">Despacho GRATIS</div>
-        <div class="badge">Entrega 2-4 días</div>
-        <div class="badge">Pago contra entrega</div>
-        <div class="badge">Gran Concepción</div>
+      <div class="kpiRow">
+        <div class="badge">🧾 Factura</div>
+        <div class="badge">🏢 Empresas / Colegios</div>
+        <div class="badge">💳 Crédito (evaluación)</div>
+        <div class="badge">🚚 Gran Concepción</div>
       </div>
 
-      <div class="heroCtas">
-        <button class="btn primary">Ver ofertas</button>
-        <button class="btn">Ver catálogo</button>
-        <a class="btn" href="empresas.html">Soy empresa</a> <!-- ✅ EXTRA CTA -->
-      </div>
+      <div class="grid" style="margin-top:14px">
+        <!-- Form -->
+        <div class="card" style="box-shadow:none">
+          <b style="display:block;margin-bottom:8px">Datos de la empresa</b>
 
-    </div>
+          <div class="grid" style="grid-template-columns:1fr 1fr; margin-top:0">
+            <div class="field">
+              <label>Razón social *</label>
+              <input id="rs" placeholder="Ej: Colegio San X / Empresa Y SpA" />
+            </div>
+            <div class="field">
+              <label>RUT empresa *</label>
+              <input id="rut" placeholder="Ej: 76.123.456-7" />
+              <div class="hint">Sin validación automática (por ahora). Escríbelo tal como aparece en la factura.</div>
+            </div>
+          </div>
 
-    <div class="heroSide">
-      <b>Cobertura</b>
-      <p>Talcahuano, Concepción, Hualpén, San Pedro, Penco y alrededores.</p>
+          <div class="grid" style="grid-template-columns:1fr 1fr; margin-top:10px">
+            <div class="field">
+              <label>Nombre contacto *</label>
+              <input id="contacto" placeholder="Nombre y apellido" />
+            </div>
+            <div class="field">
+              <label>Teléfono *</label>
+              <input id="fono" placeholder="Ej: +56 9 1234 5678" />
+            </div>
+          </div>
 
-      <b>Pago</b>
-      <p>Contra entrega o crédito empresas.</p>
-    </div>
+          <div class="grid" style="grid-template-columns:1fr 1fr; margin-top:10px">
+            <div class="field">
+              <label>Email</label>
+              <input id="email" placeholder="correo@empresa.cl" />
+            </div>
+            <div class="field">
+              <label>Comuna *</label>
+              <input id="comuna" placeholder="Talcahuano / Concepción / ..." />
+            </div>
+          </div>
 
-  </section>
+          <div class="field" style="margin-top:10px">
+            <label>Dirección *</label>
+            <input id="direccion" placeholder="Calle / número / referencia (local o bodega)" />
+          </div>
 
-  <div class="grid">
+          <div class="grid" style="grid-template-columns:1fr 1fr; margin-top:10px">
+            <div class="field">
+              <label>Plazo solicitado</label>
+              <select id="plazo">
+                <option value="7 días">Crédito 7 días</option>
+                <option value="15 días">Crédito 15 días</option>
+                <option value="20 días">Crédito 20 días</option>
+                <option value="Contra entrega">Pago contra entrega</option>
+              </select>
+              <div class="hint">*Sujeto a evaluación comercial.</div>
+            </div>
 
-    <div class="p">
-      <div class="pImg">Producto</div>
-      <div class="pBody">
-        <div class="pName">Cuaderno universitario</div>
-        <div class="price">
-          <div class="now">$1.990</div>
-          <button class="add">Agregar</button>
+            <div class="field">
+              <label>Compra estimada (aprox.)</label>
+              <select id="monto">
+                <option value="Menos de $100.000">Menos de $100.000</option>
+                <option value="$100.000 a $300.000">$100.000 a $300.000</option>
+                <option value="$300.000 a $800.000">$300.000 a $800.000</option>
+                <option value="Más de $800.000">Más de $800.000</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field" style="margin-top:10px">
+            <label>¿Qué necesitas comprar? *</label>
+            <textarea id="detalle" placeholder="Ej: útiles escolares (lista), resmas, carpetas, artículos de oficina, limpieza, ferretería..."></textarea>
+            <div class="hint">Si ya tienes una lista (Excel/PDF), indícalo y la pides por WhatsApp.</div>
+          </div>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
+            <button class="btn primary" onclick="sendCompanyRequest()">Enviar solicitud por WhatsApp</button>
+            <button class="btn" onclick="clearForm()">Limpiar</button>
+          </div>
+
+          <div class="hint" style="margin-top:10px">
+            Al enviar, se abrirá WhatsApp con el mensaje listo. No guardamos los datos en servidor (por ahora).
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="card" style="box-shadow:none">
+          <b style="display:block;margin-bottom:8px">Cómo funciona</b>
+          <p style="margin-top:0">
+            1) Nos envías la solicitud.<br/>
+            2) Revisamos datos para crédito (si aplica).<br/>
+            3) Confirmamos disponibilidad / precios y coordinamos entrega.<br/>
+            4) Entrega en <b>2 a 4 días hábiles</b> (estimado) según coordinación.
+          </p>
+
+          <div style="height:10px"></div>
+          <b style="display:block;margin-bottom:8px">Documentos típicos (referencial)</b>
+          <p style="margin-top:0">
+            • RUT empresa y datos de facturación.<br/>
+            • Dirección de entrega.<br/>
+            • Orden de compra / listado de productos (si existe).<br/>
+            • Contacto responsable.
+          </p>
+
+          <div style="height:10px"></div>
+          <div class="card" style="box-shadow:none;border-radius:14px;border:1px dashed rgba(200,16,46,.25);background:rgba(200,16,46,.04)">
+            <b>Tip rápido</b>
+            <div class="muted" style="font-size:12px;margin-top:4px">
+              Si tu compra es por licitación (Mercado Público), indícanos: comuna, cantidad de puntos de entrega y plazo requerido.
+            </div>
+          </div>
+
+          <div style="height:12px"></div>
+          <button class="btn primary" style="width:100%" onclick="openWhatsAppGeneral()">Hablar con ventas por WhatsApp</button>
         </div>
       </div>
     </div>
 
-    <div class="p">
-      <div class="pImg">Producto</div>
-      <div class="pBody">
-        <div class="pName">Resma papel carta</div>
-        <div class="price">
-          <div class="now">$4.990</div>
-          <button class="add">Agregar</button>
-        </div>
+    <footer>
+      <div class="footerBox">
+        <b style="color:rgba(17,24,39,.85)">Mundo D&H</b><br/>
+        <span>Área Empresas • Gran Concepción • Chile</span><br/>
+        <span class="muted">© <span id="year"></span> Mundo D&H</span>
       </div>
-    </div>
-
+    </footer>
   </div>
 
-</div>
+  <script>
+    // ===== CONFIG =====
+    const WHATSAPP_NUMERO = "56900000000"; // <-- CAMBIA A TU NÚMERO REAL (569XXXXXXXX)
 
-<div class="cartbar">
-  <div class="wrap">
-    <div class="row">
-      <div>Carrito: $0</div>
-      <button class="btn primary">Enviar pedido</button>
-    </div>
-  </div>
-</div>
+    function openWhatsApp(message){
+      const url = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
 
-<footer>
-  <div class="wrap">
-    <div class="footerBox">
-      <b>Mundo D&H</b><br>
-      Distribución escolar, oficina, ferretería y más.<br>
-      Gran Concepción
-    </div>
-  </div>
-</footer>
+    function openWhatsAppGeneral(){
+      const msg =
+`Hola Mundo D&H 👋
+Soy empresa y quiero cotizar / comprar.
 
+📍 Comuna:
+🧾 Necesito factura
+💳 Pago: contra entrega o crédito (7/15/20)
+¿Me ayudas con el proceso y disponibilidad?`;
+      openWhatsApp(msg);
+    }
+
+    function val(id){ return (document.getElementById(id).value || "").trim(); }
+
+    function sendCompanyRequest(){
+      const rs = val("rs");
+      const rut = val("rut");
+      const contacto = val("contacto");
+      const fono = val("fono");
+      const email = val("email");
+      const comuna = val("comuna");
+      const direccion = val("direccion");
+      const plazo = document.getElementById("plazo").value;
+      const monto = document.getElementById("monto").value;
+      const detalle = val("detalle");
+
+      // mínimos obligatorios
+      if(!rs || !rut || !contacto || !fono || !comuna || !direccion || !detalle){
+        alert("Faltan campos obligatorios (*). Completa razón social, RUT, contacto, teléfono, comuna, dirección y detalle.");
+        return;
+      }
+
+      const msg =
+`Solicitud Empresas — Mundo D&H
+
+🏢 Razón social: ${rs}
+🧾 RUT empresa: ${rut}
+
+👤 Contacto: ${contacto}
+📞 Teléfono: ${fono}
+✉️ Email: ${email || "(no informado)"}
+
+📍 Comuna: ${comuna}
+📌 Dirección: ${direccion}
+
+💳 Pago / plazo: ${plazo} (sujeto a evaluación)
+💰 Compra estimada: ${monto}
+
+🛒 Detalle / requerimiento:
+${detalle}
+
+¿Me confirman disponibilidad, precios y pasos para facturar?`;
+
+      openWhatsApp(msg);
+    }
+
+    function clearForm(){
+      ["rs","rut","contacto","fono","email","comuna","direccion","detalle"].forEach(id=>{
+        document.getElementById(id).value = "";
+      });
+      document.getElementById("plazo").value = "7 días";
+      document.getElementById("monto").value = "Menos de $100.000";
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
