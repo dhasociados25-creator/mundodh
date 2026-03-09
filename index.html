@@ -12,6 +12,152 @@
   <link rel="stylesheet" href="style.css" />
 
   <style>
+    .top-commerce-band{
+      margin-top:22px;
+      display:grid;
+      grid-template-columns:280px 1fr 360px;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .shipping-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.94), rgba(255,255,255,.86));
+      border:1px solid rgba(255,255,255,.35);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      text-align:center;
+    }
+
+    .shipping-card h3{
+      margin:0 0 12px;
+      font-size:30px;
+      line-height:1.02;
+      color:var(--ink);
+    }
+
+    .shipping-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.6;
+      font-size:15px;
+    }
+
+    .shipping-icons{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:14px;
+      margin-top:14px;
+      font-size:38px;
+    }
+
+    .brands-showcase{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:18px 20px;
+      backdrop-filter:blur(6px);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .brands-showcase h3{
+      margin:0 0 14px;
+      color:#fff;
+      font-size:24px;
+      line-height:1.08;
+    }
+
+    .brands-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+    }
+
+    .brand-pill{
+      padding:12px 16px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.18);
+      color:#fff;
+      font-size:14px;
+      font-weight:800;
+      backdrop-filter:blur(6px);
+    }
+
+    .sales-room-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.90));
+      border:1px solid rgba(255,255,255,.34);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .sales-room-card h3{
+      margin:0;
+      font-size:20px;
+      line-height:1.2;
+      color:var(--ink);
+    }
+
+    .sales-room-card strong{
+      color:var(--primary);
+    }
+
+    .sales-info{
+      display:grid;
+      gap:10px;
+    }
+
+    .sales-info div{
+      color:var(--ink-soft);
+      font-size:15px;
+      line-height:1.55;
+    }
+
+    .sales-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .sales-mini-bar{
+      margin-top:14px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow:var(--shadow-soft);
+      padding:16px 18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+    }
+
+    .sales-mini-bar strong{
+      color:var(--ink);
+      font-size:18px;
+    }
+
+    .sales-mini-bar span{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
+      display:block;
+      margin-top:4px;
+    }
+
     .home-hero{
       margin-top:24px;
       display:grid;
@@ -560,12 +706,17 @@
     }
 
     @media (max-width:1120px){
+      .top-commerce-band,
       .home-hero,
       .promo-banner-home,
       .home-cards-grid,
       .home-category-grid,
       .offer-box-row{
         grid-template-columns:1fr 1fr;
+      }
+
+      .brands-showcase{
+        grid-column:1 / -1;
       }
 
       .home-hero-side{
@@ -578,6 +729,7 @@
     }
 
     @media (max-width:820px){
+      .top-commerce-band,
       .home-hero,
       .promo-banner-home,
       .home-cards-grid,
@@ -598,11 +750,24 @@
         font-size:40px;
       }
 
+      .shipping-card h3{
+        font-size:24px;
+      }
+
+      .brands-showcase h3{
+        font-size:22px;
+      }
+
       .section-title-home h2,
       .promo-banner-copy h2,
       .zones-band h2,
       .final-cta-home h2{
         font-size:28px;
+      }
+
+      .sales-mini-bar{
+        flex-direction:column;
+        align-items:flex-start;
       }
 
       .hero-dots{
@@ -655,13 +820,73 @@
       <nav class="menu">
         <a href="index.html">Inicio</a>
         <a href="catalogo.html">Catálogo</a>
+        <a href="ofertas.html">Ofertas</a>
         <a href="empresas.html">Empresas</a>
-        <a href="#categorias">Categorías</a>
-        <a href="#ofertas">Ofertas</a>
-        <a href="#zonas">Cobertura</a>
+        <a href="contacto.html">Contacto</a>
       </nav>
 
       <a class="btn btn-yellow" href="empresas.html">Solicitar cotización</a>
+    </div>
+
+    <div class="wrap">
+      <section class="top-commerce-band">
+        <div class="shipping-card">
+          <h3>Despacho gratis</h3>
+          <p>
+            Cobertura comercial en <strong>Gran Talcahuano</strong> y zonas cercanas según coordinación,
+            disponibilidad y volumen del pedido.
+          </p>
+          <div class="shipping-icons">
+            <span>🚚</span>
+            <span>📦</span>
+          </div>
+        </div>
+
+        <div class="brands-showcase">
+          <h3>Marcas y líneas con las que trabajará Mundo D&amp;H</h3>
+          <div class="brands-row">
+            <div class="brand-pill">Escolar</div>
+            <div class="brand-pill">Oficina</div>
+            <div class="brand-pill">Papelería</div>
+            <div class="brand-pill">Aseo</div>
+            <div class="brand-pill">Ferretería</div>
+            <div class="brand-pill">Computación</div>
+            <div class="brand-pill">Didácticos</div>
+            <div class="brand-pill">Hogar</div>
+            <div class="brand-pill">Suministros empresa</div>
+          </div>
+        </div>
+
+        <div class="sales-room-card">
+          <h3>
+            Su compra será coordinada por ventas online
+            <strong>Mundo D&amp;H</strong>
+          </h3>
+
+          <div class="sales-info">
+            <div>📍 Cobertura principal: Gran Talcahuano</div>
+            <div>🕘 Lunes a viernes: 08:15 a 19:00 hrs.</div>
+            <div>📦 Entrega estimada: 2 a 4 días hábiles</div>
+            <div>💳 Pago contra entrega y crédito sujeto a evaluación</div>
+          </div>
+
+          <div class="sales-actions">
+            <a class="btn btn-yellow" href="catalogo.html">Ver catálogo</a>
+            <button class="btn btn-dark" type="button" onclick="quickWhatsApp()">Cotizar ahora</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="sales-mini-bar">
+        <div>
+          <strong>Cotiza, compra y coordina</strong>
+          <span>Canal directo para empresas, pymes, oficinas, colegios e instituciones.</span>
+        </div>
+
+        <button class="btn btn-dark" type="button" onclick="quickWhatsApp()">
+          Hablar por WhatsApp
+        </button>
+      </div>
     </div>
 
     <section class="wrap home-hero">
@@ -868,7 +1093,7 @@
             <div class="home-category-body">
               <h3>Ofertas y destacados</h3>
               <p>Promociones visuales, atención comercial y una experiencia más cercana a retail.</p>
-              <a href="empresas.html">Cotizar ahora</a>
+              <a href="ofertas.html">Ver ofertas</a>
             </div>
           </article>
         </div>
@@ -956,7 +1181,9 @@
         <h4>Navegación</h4>
         <a href="index.html">Inicio</a>
         <a href="catalogo.html">Catálogo</a>
+        <a href="ofertas.html">Ofertas</a>
         <a href="empresas.html">Empresas</a>
+        <a href="contacto.html">Contacto</a>
       </div>
 
       <div>
@@ -1027,3 +1254,4 @@
   </script>
 </body>
 </html>
+ 
