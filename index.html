@@ -109,6 +109,7 @@
       flex-direction:column;
       justify-content:center;
       text-align:center;
+      position:relative;
     }
 
     .shipping-card h3{
@@ -208,6 +209,7 @@
       flex-direction:column;
       justify-content:space-between;
       gap:16px;
+      position:relative;
     }
 
     .sales-room-card h3{
@@ -264,6 +266,41 @@
       line-height:1.55;
       display:block;
       margin-top:4px;
+    }
+
+    .info-card-badge{
+      width:68px;
+      height:68px;
+      border-radius:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin:0 auto 18px;
+      font-size:22px;
+      font-weight:900;
+      letter-spacing:.6px;
+      box-shadow:0 12px 28px rgba(0,0,0,.12);
+      flex-shrink:0;
+    }
+
+    .info-card-badge.light{
+      background:linear-gradient(180deg, #fff4cc, #ffd84d);
+      color:#7a5200;
+      border:1px solid rgba(122,82,0,.12);
+    }
+
+    .info-card-badge.red{
+      background:linear-gradient(180deg, #ff7388, #e23452);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.14);
+      margin-left:0;
+    }
+
+    .info-card-badge.blue{
+      background:linear-gradient(180deg, #2d5f93, #17385d);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.10);
+      margin-left:0;
     }
 
     .home-hero{
@@ -941,6 +978,11 @@
         min-width:unset;
         width:100%;
       }
+
+      .info-card-badge.red,
+      .info-card-badge.blue{
+        margin-left:0;
+      }
     }
   </style>
 </head>
@@ -998,6 +1040,7 @@
     <div class="wrap">
       <section class="top-commerce-band">
         <div class="shipping-card">
+          <div class="info-card-badge light">DP</div>
           <h3>Despacho gratis</h3>
           <p>
             Cobertura comercial en <strong>Gran Talcahuano</strong> y zonas cercanas según coordinación,
@@ -1010,6 +1053,7 @@
         </div>
 
         <div class="brands-showcase">
+          <div class="info-card-badge red">CT</div>
           <h3>Marcas, líneas y categorías para empresas, oficinas, colegios e instituciones</h3>
           <div class="brands-row">
             <div class="brand-pill">Escolar</div>
@@ -1025,6 +1069,8 @@
         </div>
 
         <div class="sales-room-card">
+          <div class="info-card-badge blue">VT</div>
+
           <h3>
             Su compra será coordinada por ventas online
             <strong>Mundo D&amp;H</strong>
