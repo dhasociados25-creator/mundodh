@@ -1,4 +1,4 @@
-const WHATSAPP_NUMERO = "56900000000";
+const WHATSAPP_NUMERO = "56995708887";
 
 function openWhatsApp(message) {
   const url = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(message)}`;
@@ -121,4 +121,5 @@ function clearForm() {
 
   show(0);
   restart();
+
 })();
