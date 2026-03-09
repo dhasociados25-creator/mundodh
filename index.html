@@ -3,443 +3,564 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mundo D&H | Distribución Online</title>
-  <meta name="description" content="Mundo D&H: ventas online, despacho 2 a 4 días hábiles, pago contra entrega y crédito para empresas y pymes en Gran Concepción." />
-  <meta name="theme-color" content="#1f73be" />
+  <title>Mundo D&H | Suministros, distribución y atención empresas</title>
+  <meta
+    name="description"
+    content="Mundo D&H: abastecimiento, ventas online, distribución y atención comercial para empresas, pymes, oficinas, colegios e instituciones. Cotizaciones, despacho y crédito comercial sujeto a evaluación."
+  />
+  <meta name="theme-color" content="#c8102e" />
 
   <style>
     :root{
-      --blue-1:#66a9e8;
-      --blue-2:#3b89d2;
-      --blue-3:#1f73be;
-      --blue-4:#145a98;
+      --primary:#c8102e;
+      --primary-dark:#a00d26;
+      --secondary:#0f4c81;
+      --secondary-dark:#0a3458;
+      --accent:#ffd54a;
 
-      --red-1:#e03333;
-      --red-2:#c81414;
-
-      --yellow-1:#ffd319;
-      --yellow-2:#ffeb70;
-
-      --ink:#17212b;
-      --muted:#667085;
-      --line:#dbe4ee;
+      --bg:#f6f8fb;
       --paper:#ffffff;
-      --bg:#f4f8fc;
+      --ink:#132033;
+      --muted:#657286;
+      --line:#e4e9f0;
+      --success:#0d8b5f;
 
-      --shadow:0 14px 34px rgba(9,30,66,.12);
-      --shadow-soft:0 8px 18px rgba(9,30,66,.08);
-
-      --radius:18px;
-      --max:1600px;
+      --shadow:0 16px 40px rgba(18, 32, 51, .10);
+      --shadow-soft:0 8px 20px rgba(18, 32, 51, .08);
+      --radius:20px;
+      --max:1280px;
     }
 
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
+    html{scroll-behavior:smooth}
     body{
+      margin:0;
       font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
       color:var(--ink);
-      background:linear-gradient(180deg,#dcecff 0%, #eef5fc 340px, #f7fafc 341px, #f7fafc 100%);
     }
+
     a{text-decoration:none;color:inherit}
-    img{display:block;max-width:100%}
+    img{max-width:100%;display:block}
     button,input,select,textarea{font:inherit}
 
     .wrap{
-      width:min(var(--max), calc(100% - 30px));
+      width:min(var(--max), calc(100% - 28px));
       margin:0 auto;
     }
 
-    /* ===== HERO SUPERIOR ===== */
-    .hero{
-      position:relative;
-      overflow:hidden;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(255,255,255,.18), transparent 16%),
-        radial-gradient(circle at 70% 10%, rgba(255,255,255,.12), transparent 18%),
-        radial-gradient(circle at 50% 55%, rgba(255,255,255,.10), transparent 14%),
-        linear-gradient(180deg,var(--blue-1) 0%, var(--blue-2) 48%, var(--blue-3) 100%);
-      padding:14px 0 24px;
-      border-bottom:6px solid var(--red-1);
+    .topbar{
+      background:linear-gradient(90deg, var(--secondary-dark), var(--secondary));
+      color:#fff;
+      font-size:14px;
+      border-bottom:4px solid var(--accent);
     }
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns:280px 1fr 470px;
-      gap:18px;
-      align-items:start;
-    }
-
-    .card{
-      background:rgba(255,255,255,.94);
-      border:1px solid rgba(255,255,255,.55);
-      border-radius:22px;
-      box-shadow:var(--shadow);
-    }
-
-    .left-col,
-    .center-col,
-    .right-col{
+    .topbar-inner{
+      min-height:46px;
       display:flex;
-      flex-direction:column;
-      gap:16px;
-    }
-
-    .logo-big{
-      width:260px;
-      filter:drop-shadow(0 10px 18px rgba(0,0,0,.14));
-      margin-top:6px;
-    }
-
-    .shipping-box{
-      padding:18px;
-      min-height:145px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      text-align:center;
-      gap:10px;
-    }
-
-    .shipping-box h3{
-      margin:0;
-      font-size:22px;
-      line-height:1.1;
-      font-weight:900;
-      color:#0f2237;
-    }
-
-    .shipping-icons{
-      display:flex;
-      justify-content:center;
+      align-items:center;
+      justify-content:space-between;
       gap:14px;
-      font-size:28px;
+      flex-wrap:wrap;
+      padding:8px 0;
     }
 
-    .social-row{
+    .topbar-left,
+    .topbar-right{
       display:flex;
       align-items:center;
-      gap:12px;
-      color:#fff;
-      font-size:16px;
-      font-weight:700;
-      flex-wrap:wrap;
-      text-shadow:0 1px 0 rgba(0,0,0,.08);
-    }
-
-    .socials{
-      display:flex;
-      gap:10px;
-    }
-
-    .social{
-      width:46px;
-      height:46px;
-      border-radius:999px;
-      display:grid;
-      place-items:center;
-      background:rgba(255,255,255,.16);
-      border:1px solid rgba(255,255,255,.28);
-      box-shadow:var(--shadow-soft);
-      color:#fff;
-      font-size:24px;
-      font-weight:900;
-    }
-
-    .search-row{
-      display:grid;
-      grid-template-columns:1fr 72px 130px;
-      overflow:hidden;
-      border-radius:18px;
-      box-shadow:var(--shadow);
-      border:2px solid rgba(255,255,255,.55);
-      background:#fff;
-    }
-
-    .search-row input{
-      border:0;
-      padding:20px 18px;
-      font-size:22px;
-      outline:none;
-      min-width:0;
-    }
-
-    .search-btn{
-      border:0;
-      background:linear-gradient(180deg,var(--yellow-1),#f1c400);
-      cursor:pointer;
-      font-size:28px;
-      font-weight:900;
-    }
-
-    .cart-btn{
-      border:0;
-      background:#1f1f1f;
-      color:#fff;
-      cursor:pointer;
-      font-size:26px;
-      font-weight:900;
-    }
-
-    .nav-pills{
-      display:flex;
-      gap:8px;
+      gap:16px;
       flex-wrap:wrap;
     }
 
-    .nav-pill{
-      background:#fff;
-      border:1px solid #d8dfe8;
-      border-radius:8px;
-      padding:12px 16px;
-      font-size:15px;
-      box-shadow:var(--shadow-soft);
-    }
-
-    .nav-pill:hover{
-      background:#f8fbff;
-    }
-
-    .brands-strip{
-      min-height:150px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:28px;
-      flex-wrap:wrap;
-      color:#fff;
-      font-weight:900;
-      font-size:26px;
-      text-shadow:0 2px 4px rgba(0,0,0,.16);
-    }
-
-    .years-badge{
-      width:104px;
-      height:104px;
-      border-radius:999px;
-      border:4px solid #d8a518;
-      display:grid;
-      place-items:center;
-      color:#ffd74b;
-      box-shadow:inset 0 0 0 6px rgba(255,211,25,.20);
-      text-align:center;
-      font-weight:900;
-      font-size:16px;
-    }
-
-    .years-badge span{
-      display:block;
-      font-size:46px;
-      line-height:.9;
-    }
-
-    .store-card{
-      padding:16px 18px;
-    }
-
-    .store-title{
-      margin:0;
-      text-align:center;
-      color:#555;
-      font-size:20px;
-      font-weight:500;
-    }
-
-    .store-title strong{
-      display:block;
-      margin-top:4px;
-      font-size:30px;
-      color:#202020;
-      text-decoration:underline;
-      text-decoration-color:#df3b3b;
-      text-decoration-thickness:2px;
-      text-underline-offset:6px;
-    }
-
-    .store-grid{
-      display:grid;
-      grid-template-columns:1.2fr 1fr;
-      gap:18px;
-      margin-top:16px;
-    }
-
-    .store-list{
-      display:grid;
-      gap:8px;
-      font-size:15px;
-    }
-
-    .schedule{
-      font-size:15px;
-      line-height:1.55;
-    }
-
-    .schedule b{
-      color:var(--red-2);
-    }
-
-    .store-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:14px;
-    }
-
-    .btn-red{
+    .top-pill{
       display:inline-flex;
       align-items:center;
-      justify-content:center;
       gap:8px;
-      padding:12px 16px;
-      border-radius:10px;
-      background:linear-gradient(180deg,#eb4545,#d62727);
-      color:#fff;
-      font-weight:900;
-      box-shadow:0 10px 22px rgba(217,45,45,.24);
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.18);
     }
 
-    .quote-box{
-      padding:18px 20px;
+    header{
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,.16), transparent 22%),
+        linear-gradient(180deg, #d61b38 0%, #c8102e 54%, #a50f28 100%);
+      color:#fff;
+      padding:16px 0 42px;
+      box-shadow:inset 0 -6px 0 rgba(0,0,0,.06);
+    }
+
+    .nav{
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:18px;
+      backdrop-filter:blur(6px);
+      box-shadow:var(--shadow-soft);
+      padding:14px 16px;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:16px;
-      font-size:18px;
-      font-weight:900;
+      flex-wrap:wrap;
     }
 
-    .quote-left{
-      display:flex;
-      align-items:center;
-      gap:14px;
-    }
-
-    .quote-icon{
-      font-size:34px;
-    }
-
-    .cart-mini{
-      font-size:34px;
-      white-space:nowrap;
-      color:#333;
-    }
-
-    /* ===== BARRA ROJA ===== */
-    .announce{
-      background:#df3131;
-      color:#fff;
-      font-size:21px;
-      font-weight:900;
-      padding:16px 0;
-      text-align:right;
-      box-shadow:inset 0 -3px 0 rgba(0,0,0,.08);
-    }
-
-    /* ===== MAIN ===== */
-    .main{
-      padding:24px 0 60px;
-    }
-
-    .main-grid{
-      display:grid;
-      grid-template-columns:470px 1fr;
-      gap:24px;
-      align-items:start;
-    }
-
-    .sidebar{
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-      position:sticky;
-      top:18px;
-    }
-
-    .brand-box{
-      padding:24px;
-    }
-
-    .brand-head{
+    .brand{
       display:flex;
       align-items:center;
       gap:16px;
-      margin-bottom:12px;
+      min-width:0;
     }
 
-    .brand-badge{
-      width:120px;
-      height:120px;
-      border-radius:24px;
-      background:#fff;
-      border:1px solid #e7eef5;
-      box-shadow:var(--shadow-soft);
-      padding:10px;
-      display:grid;
-      place-items:center;
-      flex:0 0 auto;
-    }
-
-    .brand-badge img{
-      width:100%;
-      height:100%;
+    .brand-logo{
+      width:230px;
+      height:auto;
       object-fit:contain;
+      filter:drop-shadow(0 8px 18px rgba(0,0,0,.20));
     }
 
-    .brand-copy h1{
-      margin:0;
-      font-size:42px;
+    .brand-copy{
+      min-width:0;
+    }
+
+    .brand-copy strong{
+      display:block;
+      font-size:22px;
       line-height:1;
-      letter-spacing:-1px;
+      margin-bottom:4px;
     }
 
-    .brand-copy p{
-      margin:10px 0 0;
-      color:var(--muted);
-      font-size:17px;
-      line-height:1.45;
+    .brand-copy span{
+      color:rgba(255,255,255,.90);
+      font-size:14px;
     }
 
-    .badges{
+    .menu{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
-      margin-top:18px;
+      align-items:center;
     }
 
-    .badge{
+    .menu a{
+      padding:11px 14px;
+      border-radius:12px;
+      color:#fff;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .menu a:hover{
+      background:rgba(255,255,255,.12);
+    }
+
+    .btn-main,
+    .btn-alt,
+    .btn-light{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 18px;
+      border-radius:14px;
+      font-weight:800;
+      border:0;
+      cursor:pointer;
+      box-shadow:var(--shadow-soft);
+      transition:.18s ease;
+    }
+
+    .btn-main{
+      background:linear-gradient(180deg, #ffd95a, #f5c92f);
+      color:#1b1b1b;
+    }
+
+    .btn-alt{
+      background:linear-gradient(180deg, #1d6fb4, #0f4c81);
+      color:#fff;
+    }
+
+    .btn-light{
+      background:#fff;
+      color:var(--ink);
+      border:1px solid #e8edf3;
+    }
+
+    .btn-main:hover,
+    .btn-alt:hover,
+    .btn-light:hover{
+      transform:translateY(-1px);
+    }
+
+    .hero{
+      margin-top:26px;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:24px;
+      align-items:stretch;
+    }
+
+    .hero-copy,
+    .hero-card{
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:24px;
+      padding:28px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(6px);
+    }
+
+    .eyebrow{
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding:11px 14px;
+      padding:9px 14px;
       border-radius:999px;
-      border:1px solid #dee6ee;
-      background:#fff;
-      box-shadow:var(--shadow-soft);
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.16);
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:.2px;
+      margin-bottom:18px;
+    }
+
+    .hero h1{
+      margin:0 0 14px;
+      font-size:50px;
+      line-height:1.02;
+      letter-spacing:-1px;
+    }
+
+    .hero p{
+      margin:0;
+      color:rgba(255,255,255,.92);
+      font-size:18px;
+      line-height:1.6;
+      max-width:760px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:24px;
+    }
+
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:12px;
+      margin-top:24px;
+    }
+
+    .point{
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:18px;
+      padding:16px;
+    }
+
+    .point strong{
+      display:block;
+      font-size:16px;
+      margin-bottom:6px;
+    }
+
+    .point span{
+      color:rgba(255,255,255,.90);
       font-size:14px;
-      font-weight:900;
-    }
-
-    .badge.active{
-      background:linear-gradient(180deg,var(--yellow-1),#ffd319);
-      color:#111;
-      border-color:#f0d15a;
-    }
-
-    .form-card{
-      padding:22px;
-    }
-
-    .form-card h2{
-      margin:0 0 8px;
-      font-size:27px;
-    }
-
-    .sub{
-      margin:0 0 16px;
-      color:var(--muted);
       line-height:1.5;
     }
 
-    .grid{
+    .hero-card{
+      background:#fff;
+      color:var(--ink);
+    }
+
+    .hero-card h3{
+      margin:0 0 8px;
+      font-size:28px;
+    }
+
+    .hero-card p{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.55;
+    }
+
+    .trust-list{
+      display:grid;
+      gap:12px;
+    }
+
+    .trust-item{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:14px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fbfcfe;
+    }
+
+    .trust-icon{
+      width:42px;
+      height:42px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background:#eef5fb;
+      color:var(--secondary);
+      font-size:20px;
+      flex:0 0 auto;
+    }
+
+    .trust-item strong{
+      display:block;
+      margin-bottom:4px;
+      font-size:15px;
+    }
+
+    .trust-item span{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
+    }
+
+    .section{
+      padding:38px 0;
+    }
+
+    .section-head{
+      margin-bottom:20px;
+    }
+
+    .section-head h2{
+      margin:0 0 8px;
+      font-size:34px;
+      letter-spacing:-.6px;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.6;
+      font-size:16px;
+      max-width:860px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+    }
+
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:16px;
+    }
+
+    .card{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:22px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .service-card{
+      padding:22px;
+    }
+
+    .service-icon{
+      width:58px;
+      height:58px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      font-size:25px;
+      background:linear-gradient(180deg, #eef6ff, #e4effb);
+      color:var(--secondary);
+      margin-bottom:14px;
+    }
+
+    .service-card h3{
+      margin:0 0 10px;
+      font-size:22px;
+    }
+
+    .service-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.6;
+      font-size:15px;
+    }
+
+    .cat-card{
+      padding:20px;
+      min-height:160px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:12px;
+      transition:.18s ease;
+    }
+
+    .cat-card:hover{
+      transform:translateY(-2px);
+    }
+
+    .cat-card .cat-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .cat-card .cat-icon{
+      width:50px;
+      height:50px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:#fff3d2;
+      font-size:23px;
+    }
+
+    .cat-card h3{
+      margin:0;
+      font-size:19px;
+    }
+
+    .cat-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
+    }
+
+    .banner{
+      overflow:hidden;
+      background:
+        radial-gradient(circle at right top, rgba(255,255,255,.18), transparent 25%),
+        linear-gradient(135deg, #0f4c81 0%, #133d61 100%);
+      color:#fff;
+      padding:28px;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:20px;
+      align-items:center;
+    }
+
+    .banner h2{
+      margin:0 0 10px;
+      font-size:34px;
+      line-height:1.08;
+    }
+
+    .banner p{
+      margin:0;
+      color:rgba(255,255,255,.90);
+      line-height:1.65;
+      font-size:16px;
+    }
+
+    .banner-boxes{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .banner-mini{
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:18px;
+      padding:18px;
+    }
+
+    .banner-mini strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:18px;
+    }
+
+    .banner-mini span{
+      color:rgba(255,255,255,.90);
+      font-size:14px;
+      line-height:1.5;
+    }
+
+    .zones{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .zone{
+      padding:11px 14px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-soft);
+      font-weight:800;
+      font-size:14px;
+    }
+
+    .form-wrap{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:20px;
+      align-items:start;
+    }
+
+    .contact-box,
+    .form-card{
+      padding:24px;
+    }
+
+    .contact-box h3,
+    .form-card h3{
+      margin:0 0 10px;
+      font-size:28px;
+    }
+
+    .contact-box p,
+    .form-card p{
+      margin:0 0 18px;
+      color:var(--muted);
+      line-height:1.6;
+      font-size:15px;
+    }
+
+    .contact-points{
+      display:grid;
+      gap:12px;
+      margin-top:16px;
+    }
+
+    .contact-point{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+      background:#fafbfd;
+    }
+
+    .contact-point strong{
+      display:block;
+      margin-bottom:4px;
+      font-size:15px;
+    }
+
+    .contact-point span{
+      color:var(--muted);
+      line-height:1.5;
+      font-size:14px;
+    }
+
+    .form-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:14px;
@@ -451,9 +572,13 @@
       gap:7px;
     }
 
+    .field.full{
+      grid-column:1 / -1;
+    }
+
     .field label{
       font-size:13px;
-      font-weight:900;
+      font-weight:800;
     }
 
     .field input,
@@ -466,649 +591,634 @@
       font-size:15px;
       outline:none;
       background:#fff;
+      color:var(--ink);
     }
 
     .field textarea{
-      min-height:130px;
       resize:vertical;
+      min-height:128px;
     }
 
     .field input:focus,
     .field select:focus,
     .field textarea:focus{
-      border-color:#76aee4;
-      box-shadow:0 0 0 4px rgba(74,146,215,.12);
+      border-color:#74a8d6;
+      box-shadow:0 0 0 4px rgba(30,111,180,.12);
     }
 
     .hint{
-      font-size:12px;
       color:var(--muted);
+      font-size:12px;
+      line-height:1.5;
     }
 
-    .action-row{
+    .form-actions{
       display:flex;
       gap:12px;
       flex-wrap:wrap;
-      margin-top:16px;
+      margin-top:18px;
     }
 
-    .btn{
+    footer{
+      background:#101c2c;
+      color:#fff;
+      margin-top:18px;
+      padding:38px 0 24px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr .9fr .9fr;
+      gap:20px;
+    }
+
+    .footer-brand img{
+      width:220px;
+      height:auto;
+      object-fit:contain;
+      margin-bottom:16px;
+      filter:drop-shadow(0 6px 14px rgba(0,0,0,.20));
+    }
+
+    .footer-brand p,
+    .footer-col a,
+    .footer-col div{
+      color:rgba(255,255,255,.82);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .footer-col h4{
+      margin:0 0 12px;
+      color:#fff;
+      font-size:17px;
+    }
+
+    .footer-col{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,.10);
+      margin-top:22px;
+      padding-top:18px;
+      color:rgba(255,255,255,.72);
+      font-size:13px;
+      line-height:1.6;
+    }
+
+    .wa-float{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      width:62px;
+      height:62px;
+      border-radius:999px;
       border:0;
-      border-radius:14px;
-      padding:14px 18px;
-      font-size:15px;
-      font-weight:900;
+      background:linear-gradient(180deg,#29d266,#12a94c);
+      color:#fff;
+      font-size:30px;
+      display:grid;
+      place-items:center;
+      box-shadow:0 18px 34px rgba(18,169,76,.28);
+      z-index:999;
       cursor:pointer;
-      box-shadow:var(--shadow-soft);
     }
 
-    .btn.primary{
-      background:linear-gradient(180deg,var(--red-1),var(--red-2));
-      color:#fff;
+    .wa-float:hover{
+      transform:translateY(-1px);
     }
 
-    .btn.secondary{
-      background:#fff;
-      color:#16212f;
-      border:1px solid #dbe3ec;
-    }
-
-    .content{
-      display:flex;
-      flex-direction:column;
-      gap:22px;
-    }
-
-    .promo-panel{
-      overflow:hidden;
-      padding:0;
-    }
-
-    .promo-top{
-      position:relative;
-      background:
-        radial-gradient(circle at 12% 30%, rgba(255,232,186,.9), transparent 16%),
-        radial-gradient(circle at 38% 68%, rgba(252,226,165,.85), transparent 15%),
-        radial-gradient(circle at 70% 26%, rgba(255,235,193,.9), transparent 16%),
-        radial-gradient(circle at 87% 72%, rgba(251,228,176,.85), transparent 16%),
-        linear-gradient(180deg,#d5943d 0%, #c97b2d 100%);
-      padding:24px 24px 28px;
-      min-height:650px;
-    }
-
-    .promo-mini{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      color:#fff;
-      font-size:15px;
-      font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:.3px;
-      margin-bottom:8px;
-    }
-
-    .promo-title{
-      margin:12px 0 20px;
-      text-align:center;
-      font-size:72px;
-      line-height:.95;
-      color:#d52727;
-      -webkit-text-stroke:2px rgba(255,245,245,.92);
-      text-shadow:0 5px 0 rgba(162,17,17,.35);
-      font-weight:900;
-      letter-spacing:-2px;
-    }
-
-    .circle-row{
-      display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      gap:18px;
-    }
-
-    .circle-card{
-      background:#f5f7fb;
-      border-radius:999px;
-      aspect-ratio:1 / 1;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:18px;
-      overflow:hidden;
-      box-shadow:inset 0 0 0 8px rgba(255,255,255,.58);
-    }
-
-    .toy{
-      width:100%;
-      height:100%;
-      border-radius:28px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:linear-gradient(180deg,#ffffff 0%, #eef3f8 100%);
-      font-size:84px;
-    }
-
-    .toy.small{
-      font-size:72px;
-    }
-
-    .info-strip{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:16px;
-    }
-
-    .info-card{
-      padding:18px;
-    }
-
-    .info-card h3{
-      margin:0 0 8px;
-      font-size:22px;
-    }
-
-    .info-card p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.5;
-      font-size:15px;
-    }
-
-    .categories{
-      padding:20px;
-    }
-
-    .categories h3{
-      margin:0 0 16px;
-      font-size:26px;
-    }
-
-    .cat-grid{
-      display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      gap:14px;
-    }
-
-    .cat-item{
-      border:1px solid #dfe7ef;
-      border-radius:16px;
-      background:#fff;
-      padding:18px;
-      box-shadow:var(--shadow-soft);
-      min-height:110px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:8px;
-    }
-
-    .cat-item strong{
-      font-size:18px;
-    }
-
-    .cat-item span{
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.4;
-    }
-
-    .coverage{
-      padding:20px;
-    }
-
-    .coverage h3{
-      margin:0 0 16px;
-      font-size:26px;
-    }
-
-    .zone-list{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    .zone{
-      padding:10px 14px;
-      border-radius:999px;
-      background:#fff;
-      border:1px solid #dfe6ee;
-      box-shadow:var(--shadow-soft);
-      font-weight:900;
-      font-size:14px;
-    }
-
-    .footer-card{
-      padding:20px;
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    .footer-card strong{
-      display:block;
-      color:#1b2836;
-      margin-bottom:6px;
-    }
-
-    @media (max-width: 1450px){
-      .hero-grid{
-        grid-template-columns:240px 1fr 400px;
+    @media (max-width: 1120px){
+      .hero,
+      .banner,
+      .form-wrap,
+      .footer-grid,
+      .grid-3,
+      .grid-4{
+        grid-template-columns:1fr 1fr;
       }
-      .main-grid{
-        grid-template-columns:420px 1fr;
-      }
-      .promo-title{
-        font-size:56px;
-      }
-      .circle-row,
-      .cat-grid{
-        grid-template-columns:repeat(2, 1fr);
-      }
-      .store-grid{
+
+      .hero-points{
         grid-template-columns:1fr;
       }
     }
 
-    @media (max-width: 1180px){
-      .hero-grid,
-      .main-grid,
-      .info-strip{
+    @media (max-width: 820px){
+      .hero,
+      .banner,
+      .form-wrap,
+      .footer-grid,
+      .grid-3,
+      .grid-4,
+      .form-grid{
         grid-template-columns:1fr;
       }
-      .sidebar{
-        position:static;
-      }
-      .announce{
-        text-align:center;
-      }
-      .logo-big{
-        width:220px;
-      }
-    }
 
-    @media (max-width: 760px){
-      .wrap{
-        width:min(var(--max), calc(100% - 16px));
+      .brand{
+        width:100%;
       }
-      .search-row{
-        grid-template-columns:1fr 60px 76px;
+
+      .brand-logo{
+        width:190px;
       }
-      .search-row input{
-        font-size:16px;
-        padding:16px 14px;
+
+      .hero h1{
+        font-size:36px;
       }
-      .search-btn,
-      .cart-btn{
-        font-size:22px;
+
+      .section-head h2,
+      .banner h2{
+        font-size:28px;
       }
-      .social{
-        width:42px;
-        height:42px;
-        font-size:22px;
+
+      .menu{
+        width:100%;
       }
-      .social-row{
-        font-size:14px;
+
+      .menu a{
+        padding:10px 12px;
       }
-      .brand-copy h1{
-        font-size:30px;
-      }
-      .promo-title{
-        font-size:38px;
-        -webkit-text-stroke:1px rgba(255,245,245,.92);
-      }
-      .grid,
-      .circle-row,
-      .cat-grid{
-        grid-template-columns:1fr;
-      }
-      .quote-box{
-        font-size:16px;
+
+      .hero-copy,
+      .hero-card,
+      .service-card,
+      .cat-card,
+      .contact-box,
+      .form-card,
+      .banner{
+        padding:20px;
       }
     }
   </style>
 </head>
 <body>
 
-  <section class="hero">
-    <div class="wrap hero-grid">
-
-      <div class="left-col">
-        <img class="logo-big" src="logotipo.png" alt="Mundo D&H" onerror="this.style.display='none'">
-
-        <div class="card shipping-box">
-          <h3>Despacho a todo Chile.</h3>
-          <div class="shipping-icons">
-            <span>🚚</span>
-            <span>🇨🇱</span>
-          </div>
-        </div>
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="topbar-left">
+        <div class="top-pill">📍 Gran Concepción</div>
+        <div class="top-pill">🕘 Lunes a viernes · 08:15 a 19:00</div>
       </div>
-
-      <div class="center-col">
-        <div class="social-row">
-          <div class="socials">
-            <a class="social" href="#" aria-label="Facebook">f</a>
-            <a class="social" href="#" aria-label="Instagram">◎</a>
-            <a class="social" href="#" aria-label="X">X</a>
-            <a class="social" href="#" aria-label="TikTok">♪</a>
-          </div>
-          <div>Ventas online • Atención de lunes a viernes de 08:15 a 19:00</div>
-        </div>
-
-        <div class="search-row">
-          <input type="text" placeholder="¿QUÉ PRODUCTO ESTÁS BUSCANDO?" />
-          <button class="search-btn" type="button">🔍</button>
-          <button class="cart-btn" type="button">🛒</button>
-        </div>
-
-        <div class="nav-pills">
-          <a class="nav-pill" href="#inicio">Inicio</a>
-          <a class="nav-pill" href="#empresas">Empresas y Pymes</a>
-          <a class="nav-pill" href="#categorias">Categorías</a>
-          <a class="nav-pill" href="#cobertura">Despacho</a>
-          <a class="nav-pill" href="#credito">Crédito 7 / 15 / 20</a>
-          <a class="nav-pill" href="#contacto">Contacto</a>
-          <a class="nav-pill" href="empresas.html">Formulario Empresas</a>
-        </div>
-
-        <div class="brands-strip">
-          <div>Escolar</div>
-          <div>Oficina</div>
-          <div>Aseo</div>
-          <div class="years-badge"><div><span>7/15/20</span>días</div></div>
-          <div>Ferretería</div>
-          <div>Hogar</div>
-          <div>Didácticos</div>
-        </div>
+      <div class="topbar-right">
+        <div class="top-pill">📦 Entrega estimada 2 a 4 días hábiles</div>
+        <div class="top-pill">🏢 Atención empresas y pymes</div>
       </div>
-
-      <div class="right-col">
-        <div class="card store-card">
-          <p class="store-title">
-            Su compra será coordinada por ventas online
-            <strong>Mundo D&H</strong>
-          </p>
-
-          <div class="store-grid">
-            <div class="store-list">
-              <div><strong>ℹ Información comercial</strong></div>
-              <div>✉ dhasociados25@gmail.com</div>
-              <div>✉ hernancorrealara@gmail.com</div>
-              <div>🚚 Pedido tomado, preparado y entregado con despacho</div>
-              <div>📦 Entrega estimada de 2 a 4 días hábiles según disponibilidad</div>
-            </div>
-
-            <div class="schedule">
-              <div>🕘 Horario <b>Atención oficina</b></div>
-              <div>Lunes a viernes:<br><strong>08:15 A 19:00 HRS.</strong></div>
-              <div>Pago contra entrega disponible.</div>
-              <div>Crédito empresas y pymes:<br><strong>7 / 15 / 20 días</strong> sujeto a evaluación.</div>
-            </div>
-          </div>
-
-          <div class="store-actions">
-            <a class="btn-red" href="#cobertura">📍 ZONAS DE DESPACHO</a>
-            <a class="btn-red" href="empresas.html">🏢 FORMULARIO EMPRESAS</a>
-          </div>
-        </div>
-
-        <div class="card quote-box">
-          <div class="quote-left">
-            <div class="quote-icon">🧺</div>
-            <div>Cotiza, compra y recibe.</div>
-          </div>
-          <div class="cart-mini">🛒 0 ▾</div>
-        </div>
-      </div>
-
     </div>
-  </section>
-
-  <div class="announce">
-    <div class="wrap">DESPACHO GRATIS EN TALCAHUANO, HUALPÉN, PENCO, LIRQUÉN, TOMÉ, CONCEPCIÓN Y SAN PEDRO</div>
   </div>
 
-  <main class="main" id="inicio">
-    <div class="wrap main-grid">
-
-      <aside class="sidebar">
-        <div class="card brand-box" id="empresas">
-          <div class="brand-head">
-            <div class="brand-badge">
-              <img src="logotipo.png" alt="Mundo D&H" onerror="this.style.display='none'">
-            </div>
-            <div class="brand-copy">
-              <h1>Mundo D&amp;H</h1>
-              <p>
-                Ventas online, distribución, despacho y atención comercial para empresas, pymes, colegios, oficinas y clientes del Gran Concepción.
-              </p>
-            </div>
-          </div>
-
-          <div class="badges">
-            <div class="badge">🧾 Factura</div>
-            <div class="badge">💳 Pago contra entrega</div>
-            <div class="badge active">🏢 Empresas y pymes</div>
-            <div class="badge">🚚 Entrega 2 a 4 días</div>
+  <header>
+    <div class="wrap">
+      <nav class="nav">
+        <div class="brand">
+          <img class="brand-logo" src="./logotipo.png" alt="Mundo D&H">
+          <div class="brand-copy">
+            <strong>Mundo D&amp;H</strong>
+            <span>Distribución, suministros y atención comercial para clientes empresa</span>
           </div>
         </div>
 
-        <div class="card form-card" id="credito">
-          <h2>Solicitud rápida empresas</h2>
-          <p class="sub">
-            Completa tus datos y abre WhatsApp con la solicitud lista para ventas online. Crédito 7 / 15 / 20 días sujeto a evaluación.
+        <div class="menu">
+          <a href="#inicio">Inicio</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#categorias">Categorías</a>
+          <a href="#cobertura">Cobertura</a>
+          <a href="#empresas">Empresas</a>
+          <a href="empresas.html">Formulario</a>
+        </div>
+      </nav>
+
+      <section class="hero" id="inicio">
+        <div class="hero-copy">
+          <div class="eyebrow">Suministros, distribución y coordinación comercial</div>
+          <h1>Abastecimiento confiable para empresas, oficinas, colegios y pymes</h1>
+          <p>
+            En Mundo D&amp;H apoyamos compras corporativas y requerimientos operativos con atención comercial,
+            cotizaciones, despacho coordinado y evaluación de crédito para clientes empresa. Una propuesta pensada
+            para compras recurrentes, abastecimiento diario y necesidades institucionales.
           </p>
 
-          <div class="grid">
-            <div class="field">
-              <label>Razón social *</label>
-              <input id="rs" placeholder="Ej: Empresa Y SpA" />
-            </div>
-            <div class="field">
-              <label>RUT empresa *</label>
-              <input id="rut" placeholder="Ej: 76.123.456-7" />
-            </div>
-
-            <div class="field">
-              <label>Nombre contacto *</label>
-              <input id="contacto" placeholder="Nombre y apellido" />
-            </div>
-            <div class="field">
-              <label>Teléfono *</label>
-              <input id="fono" placeholder="+56 9 1234 5678" />
-            </div>
-
-            <div class="field">
-              <label>Email</label>
-              <input id="email" placeholder="correo@empresa.cl" />
-            </div>
-            <div class="field">
-              <label>Comuna *</label>
-              <input id="comuna" placeholder="Talcahuano / Concepción / ..." />
-            </div>
+          <div class="hero-actions">
+            <a class="btn-main" href="#contacto-form">Solicitar cotización</a>
+            <a class="btn-alt" href="empresas.html">Formulario empresas</a>
           </div>
 
-          <div class="field" style="margin-top:14px;">
-            <label>Dirección *</label>
-            <input id="direccion" placeholder="Calle / número / referencia" />
-          </div>
-
-          <div class="grid" style="margin-top:14px;">
-            <div class="field">
-              <label>Plazo solicitado</label>
-              <select id="plazo">
-                <option value="7 días">Crédito 7 días</option>
-                <option value="15 días">Crédito 15 días</option>
-                <option value="20 días">Crédito 20 días</option>
-                <option value="Contra entrega">Pago contra entrega</option>
-              </select>
-              <div class="hint">Sujeto a evaluación comercial.</div>
+          <div class="hero-points">
+            <div class="point">
+              <strong>Facturación y atención comercial</strong>
+              <span>Soporte para compras empresa, pymes, oficinas, instituciones y requerimientos recurrentes.</span>
             </div>
-
-            <div class="field">
-              <label>Compra estimada</label>
-              <select id="monto">
-                <option value="Menos de $100.000">Menos de $100.000</option>
-                <option value="$100.000 a $300.000">$100.000 a $300.000</option>
-                <option value="$300.000 a $800.000">$300.000 a $800.000</option>
-                <option value="Más de $800.000">Más de $800.000</option>
-              </select>
+            <div class="point">
+              <strong>Crédito sujeto a evaluación</strong>
+              <span>Opciones de 7, 15 y 20 días para clientes empresa, además de pago contra entrega.</span>
             </div>
-          </div>
-
-          <div class="field" style="margin-top:14px;">
-            <label>¿Qué necesitas comprar? *</label>
-            <textarea id="detalle" placeholder="Ej: útiles escolares, aseo, papelería, artículos de oficina, ferretería, computación, hogar, didácticos..."></textarea>
-            <div class="hint">Si ya tienes listado en Excel o PDF, indícalo en el detalle.</div>
-          </div>
-
-          <div class="action-row">
-            <button class="btn primary" type="button" onclick="sendCompanyRequest()">Enviar por WhatsApp</button>
-            <button class="btn secondary" type="button" onclick="clearForm()">Limpiar</button>
-          </div>
-        </div>
-      </aside>
-
-      <section class="content">
-
-        <div class="card promo-panel">
-          <div class="promo-top">
-            <div class="promo-mini">
-              <span>🚚 Despacho a 2 a 4 días hábiles</span>
-              <span>•</span>
-              <span>💳 Crédito empresas y pymes</span>
-              <span>•</span>
-              <span>📦 Pago contra entrega</span>
-            </div>
-
-            <div class="promo-title">Todo para tu empresa, pyme, oficina y hogar</div>
-
-            <div class="circle-row">
-              <div class="circle-card"><div class="toy">📚</div></div>
-              <div class="circle-card"><div class="toy">🧴</div></div>
-              <div class="circle-card"><div class="toy small">🛠️</div></div>
-              <div class="circle-card"><div class="toy">💻</div></div>
+            <div class="point">
+              <strong>Cobertura local y despacho</strong>
+              <span>Coordinación de entrega en Gran Concepción y apoyo en abastecimiento según disponibilidad.</span>
             </div>
           </div>
         </div>
 
-        <div class="info-strip">
-          <div class="card info-card">
-            <h3>Ventas online</h3>
-            <p>
-              Pedido tomado por ventas online, preparación según disponibilidad y despacho coordinado de forma simple y rápida.
-            </p>
-          </div>
+        <aside class="hero-card">
+          <h3>¿Qué ofrecemos?</h3>
+          <p>
+            Un canal comercial serio para cotizar, coordinar compras y responder requerimientos de abastecimiento.
+          </p>
 
-          <div class="card info-card">
-            <h3>Crédito comercial</h3>
-            <p>
-              Para empresas y pymes ofrecemos evaluación comercial con opciones de 7, 15 y 20 días, además de pago contra entrega.
-            </p>
-          </div>
-
-          <div class="card info-card">
-            <h3>Despacho local gratis</h3>
-            <p>
-              Cobertura sin costo en Talcahuano, Hualpén, Penco, Lirquén, Tomé, Concepción y San Pedro.
-            </p>
-          </div>
-        </div>
-
-        <div class="card categories" id="categorias">
-          <h3>Categorías principales</h3>
-
-          <div class="cat-grid">
-            <div class="cat-item">
-              <strong>Escolar</strong>
-              <span>Cuadernos, carpetas, lápices, útiles y apoyo para listas escolares.</span>
+          <div class="trust-list">
+            <div class="trust-item">
+              <div class="trust-icon">🧾</div>
+              <div>
+                <strong>Venta formal y facturación</strong>
+                <span>Atención orientada a compras comerciales y procesos de cotización claros.</span>
+              </div>
             </div>
 
-            <div class="cat-item">
-              <strong>Oficina</strong>
-              <span>Artículos de escritorio, archivadores, papelería y suministros diarios.</span>
+            <div class="trust-item">
+              <div class="trust-icon">🚚</div>
+              <div>
+                <strong>Despacho coordinado</strong>
+                <span>Entrega estimada de 2 a 4 días hábiles según disponibilidad del pedido.</span>
+              </div>
             </div>
 
-            <div class="cat-item">
-              <strong>Aseo y limpieza</strong>
-              <span>Productos para oficinas, negocios, instituciones y uso doméstico.</span>
+            <div class="trust-item">
+              <div class="trust-icon">💳</div>
+              <div>
+                <strong>Pago y crédito empresa</strong>
+                <span>Pago contra entrega y evaluación comercial para plazos de 7, 15 o 20 días.</span>
+              </div>
             </div>
 
-            <div class="cat-item">
-              <strong>Ferretería</strong>
-              <span>Soluciones prácticas para mantención, trabajo y abastecimiento general.</span>
-            </div>
-
-            <div class="cat-item">
-              <strong>Computación</strong>
-              <span>Accesorios, periféricos, conectividad y apoyo tecnológico básico.</span>
-            </div>
-
-            <div class="cat-item">
-              <strong>Hogar</strong>
-              <span>Artículos de uso diario para casas, negocios y abastecimiento general.</span>
-            </div>
-
-            <div class="cat-item">
-              <strong>Juguetería / didácticos</strong>
-              <span>Apoyo para colegios, jardines, aprendizaje y entretención educativa.</span>
-            </div>
-
-            <div class="cat-item">
-              <strong>Papelería</strong>
-              <span>Formatos, sobres, cartulinas, papeles especiales y complementos.</span>
-            </div>
-
-            <div class="cat-item">
-              <strong>Impresión / tintas</strong>
-              <span>Reposición de insumos y apoyo a impresión cotidiana o institucional.</span>
-            </div>
-
-            <div class="cat-item">
-              <strong>Embalaje</strong>
-              <span>Cintas, protección, cajas y materiales de apoyo para despacho o bodega.</span>
-            </div>
-
-            <div class="cat-item">
-              <strong>Otros</strong>
-              <span>Abastecimiento flexible según requerimiento, cotización o necesidad puntual.</span>
-            </div>
-
-            <div class="cat-item">
-              <strong>Empresas y Pymes</strong>
-              <span>Atención comercial para compras recurrentes, crédito y coordinación de entrega.</span>
+            <div class="trust-item">
+              <div class="trust-icon">📲</div>
+              <div>
+                <strong>Respuesta por WhatsApp</strong>
+                <span>Canal directo para enviar requerimientos, listados y solicitudes de abastecimiento.</span>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="card coverage" id="cobertura">
-          <h3>Cobertura de despacho gratis</h3>
-          <div class="zone-list">
-            <div class="zone">Talcahuano</div>
-            <div class="zone">Hualpén</div>
-            <div class="zone">Penco</div>
-            <div class="zone">Lirquén</div>
-            <div class="zone">Tomé</div>
-            <div class="zone">Concepción</div>
-            <div class="zone">San Pedro</div>
-          </div>
-        </div>
-
-        <div class="card footer-card" id="contacto">
-          <strong>Mundo D&amp;H</strong>
-          Ventas online • Pedido tomado y coordinado con despacho • Entrega de 2 a 4 días hábiles según disponibilidad.<br>
-          Correos: dhasociados25@gmail.com / hernancorrealara@gmail.com<br>
-          Horario de oficina: lunes a viernes de 08:15 a 19:00 hrs.<br>
-          Crédito empresas y pymes: 7 / 15 / 20 días sujeto a evaluación.
-        </div>
-
+        </aside>
       </section>
-
     </div>
+  </header>
+
+  <main>
+    <section class="section" id="servicios">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Líneas de atención comercial</h2>
+          <p>
+            Mundo D&amp;H está orientado a facilitar compras y abastecimiento para clientes que necesitan rapidez,
+            seguimiento comercial y una alternativa de coordinación más directa.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card service-card">
+            <div class="service-icon">🏢</div>
+            <h3>Empresas y pymes</h3>
+            <p>
+              Apoyo en compras periódicas, abastecimiento operativo, pedidos especiales y requerimientos comerciales
+              para negocios de distintos tamaños.
+            </p>
+          </article>
+
+          <article class="card service-card">
+            <div class="service-icon">🏫</div>
+            <h3>Colegios e instituciones</h3>
+            <p>
+              Suministros de apoyo para trabajo administrativo, escolar, didáctico, impresión, aseo y necesidades
+              de funcionamiento cotidiano.
+            </p>
+          </article>
+
+          <article class="card service-card">
+            <div class="service-icon">📦</div>
+            <h3>Compras coordinadas</h3>
+            <p>
+              Gestión de pedidos por canal digital, confirmación comercial, despacho y seguimiento de requerimientos
+              según disponibilidad.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="categorias">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Categorías principales</h2>
+          <p>
+            Estas son algunas de las líneas en las que Mundo D&amp;H puede apoyar a sus clientes con cotización
+            y coordinación de compra.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <article class="card cat-card">
+            <div class="cat-top">
+              <h3>Escolar</h3>
+              <div class="cat-icon">📚</div>
+            </div>
+            <p>Cuadernos, carpetas, lápices, útiles y apoyo para listas o abastecimiento escolar.</p>
+          </article>
+
+          <article class="card cat-card">
+            <div class="cat-top">
+              <h3>Oficina</h3>
+              <div class="cat-icon">🗂️</div>
+            </div>
+            <p>Artículos de escritorio, archivadores, papelería y suministros de uso diario.</p>
+          </article>
+
+          <article class="card cat-card">
+            <div class="cat-top">
+              <h3>Aseo y limpieza</h3>
+              <div class="cat-icon">🧴</div>
+            </div>
+            <p>Productos para oficinas, negocios, instituciones y apoyo general de mantención.</p>
+          </article>
+
+          <article class="card cat-card">
+            <div class="cat-top">
+              <h3>Ferretería</h3>
+              <div class="cat-icon">🛠️</div>
+            </div>
+            <p>Materiales y artículos prácticos para apoyo operacional y requerimientos varios.</p>
+          </article>
+
+          <article class="card cat-card">
+            <div class="cat-top">
+              <h3>Computación</h3>
+              <div class="cat-icon">💻</div>
+            </div>
+            <p>Periféricos, accesorios y apoyo tecnológico básico para trabajo y operación diaria.</p>
+          </article>
+
+          <article class="card cat-card">
+            <div class="cat-top">
+              <h3>Hogar</h3>
+              <div class="cat-icon">🏠</div>
+            </div>
+            <p>Abastecimiento general y artículos de apoyo para necesidades domésticas y comerciales.</p>
+          </article>
+
+          <article class="card cat-card">
+            <div class="cat-top">
+              <h3>Juguetería / didácticos</h3>
+              <div class="cat-icon">🧩</div>
+            </div>
+            <p>Material de apoyo para jardines, colegios, aprendizaje y actividades educativas.</p>
+          </article>
+
+          <article class="card cat-card">
+            <div class="cat-top">
+              <h3>Papelería / impresión</h3>
+              <div class="cat-icon">🖨️</div>
+            </div>
+            <p>Papeles, sobres, cartulinas, tintas y otros insumos vinculados a impresión.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="card banner">
+          <div>
+            <h2>Atención comercial pensada para compras recurrentes y requerimientos empresa</h2>
+            <p>
+              Si tu empresa, pyme, oficina o institución necesita abastecimiento, cotización formal o apoyo para
+              consolidar pedidos, Mundo D&amp;H puede actuar como canal de coordinación y respuesta comercial.
+            </p>
+
+            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:18px;">
+              <a class="btn-main" href="#contacto-form">Pedir cotización</a>
+              <a class="btn-light" href="empresas.html">Ir al formulario</a>
+            </div>
+          </div>
+
+          <div class="banner-boxes">
+            <div class="banner-mini">
+              <strong>7 / 15 / 20 días</strong>
+              <span>Crédito comercial sujeto a evaluación y validación de antecedentes.</span>
+            </div>
+            <div class="banner-mini">
+              <strong>Pago contra entrega</strong>
+              <span>Alternativa disponible para operaciones que no requieran crédito comercial.</span>
+            </div>
+            <div class="banner-mini">
+              <strong>2 a 4 días hábiles</strong>
+              <span>Tiempo estimado de entrega según disponibilidad, ubicación y volumen del pedido.</span>
+            </div>
+            <div class="banner-mini">
+              <strong>Canal directo</strong>
+              <span>WhatsApp y formulario para requerimientos, consultas y seguimiento comercial.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cobertura">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Cobertura de despacho local</h2>
+          <p>
+            Atención con foco en Gran Concepción y coordinación de entregas según requerimiento y disponibilidad.
+          </p>
+        </div>
+
+        <div class="zones">
+          <div class="zone">Talcahuano</div>
+          <div class="zone">Concepción</div>
+          <div class="zone">Hualpén</div>
+          <div class="zone">San Pedro</div>
+          <div class="zone">Penco</div>
+          <div class="zone">Lirquén</div>
+          <div class="zone">Tomé</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="empresas">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Canal rápido para empresas y pymes</h2>
+          <p>
+            Completa tu solicitud y abre WhatsApp con el requerimiento ya estructurado. Así aceleras la atención
+            comercial, la validación y la respuesta inicial.
+          </p>
+        </div>
+
+        <div class="form-wrap" id="contacto-form">
+          <aside class="card contact-box">
+            <h3>Atención comercial directa</h3>
+            <p>
+              Este canal está pensado para clientes que necesitan enviar una solicitud clara de compra, cotización
+              o abastecimiento.
+            </p>
+
+            <div class="contact-points">
+              <div class="contact-point">
+                <strong>Ventas online</strong>
+                <span>Recepción de requerimientos por canal digital y coordinación comercial posterior.</span>
+              </div>
+
+              <div class="contact-point">
+                <strong>Facturación</strong>
+                <span>Orientado a operaciones comerciales con clientes empresa y compras formales.</span>
+              </div>
+
+              <div class="contact-point">
+                <strong>Crédito sujeto a evaluación</strong>
+                <span>Opciones 7, 15 y 20 días, según antecedentes y aprobación comercial.</span>
+              </div>
+
+              <div class="contact-point">
+                <strong>Correos de contacto</strong>
+                <span>dhasociados25@gmail.com<br>hernancorrealara@gmail.com</span>
+              </div>
+
+              <div class="contact-point">
+                <strong>Horario de oficina</strong>
+                <span>Lunes a viernes, 08:15 a 19:00 hrs.</span>
+              </div>
+            </div>
+          </aside>
+
+          <div class="card form-card">
+            <h3>Solicitud rápida por WhatsApp</h3>
+            <p>
+              Ingresa los datos principales del cliente y el detalle del requerimiento. El sistema abrirá WhatsApp
+              con el mensaje listo para enviar.
+            </p>
+
+            <div class="form-grid">
+              <div class="field">
+                <label>Razón social *</label>
+                <input id="rs" placeholder="Ej: Empresa XYZ SpA">
+              </div>
+
+              <div class="field">
+                <label>RUT empresa *</label>
+                <input id="rut" placeholder="Ej: 76.123.456-7">
+              </div>
+
+              <div class="field">
+                <label>Nombre de contacto *</label>
+                <input id="contacto" placeholder="Nombre y apellido">
+              </div>
+
+              <div class="field">
+                <label>Teléfono *</label>
+                <input id="fono" placeholder="+56 9 1234 5678">
+              </div>
+
+              <div class="field">
+                <label>Correo electrónico</label>
+                <input id="email" placeholder="correo@empresa.cl">
+              </div>
+
+              <div class="field">
+                <label>Comuna *</label>
+                <input id="comuna" placeholder="Talcahuano / Concepción / ...">
+              </div>
+
+              <div class="field full">
+                <label>Dirección *</label>
+                <input id="direccion" placeholder="Dirección, número y referencia">
+              </div>
+
+              <div class="field">
+                <label>Tipo de atención</label>
+                <select id="tipo">
+                  <option value="Cotización empresa">Cotización empresa</option>
+                  <option value="Compra pyme">Compra pyme</option>
+                  <option value="Abastecimiento oficina">Abastecimiento oficina</option>
+                  <option value="Compra institucional">Compra institucional</option>
+                  <option value="Consulta comercial">Consulta comercial</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label>Plazo solicitado</label>
+                <select id="plazo">
+                  <option value="Pago contra entrega">Pago contra entrega</option>
+                  <option value="Crédito 7 días">Crédito 7 días</option>
+                  <option value="Crédito 15 días">Crédito 15 días</option>
+                  <option value="Crédito 20 días">Crédito 20 días</option>
+                </select>
+                <div class="hint">Crédito comercial sujeto a evaluación.</div>
+              </div>
+
+              <div class="field full">
+                <label>Detalle del requerimiento *</label>
+                <textarea id="detalle" placeholder="Describe productos, categorías, cantidades aproximadas, urgencia, formato de compra o cualquier antecedente relevante."></textarea>
+                <div class="hint">Si ya tienes un listado en Excel, PDF o una base de productos, indícalo aquí.</div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn-main" type="button" onclick="sendCompanyRequest()">Enviar por WhatsApp</button>
+              <button class="btn-light" type="button" onclick="clearForm()">Limpiar formulario</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="./logotipo.png" alt="Mundo D&H">
+          <p>
+            Mundo D&amp;H es un canal de ventas online, coordinación comercial y apoyo en abastecimiento para
+            empresas, pymes, oficinas, colegios e instituciones del Gran Concepción.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <a href="#inicio">Inicio</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#categorias">Categorías</a>
+          <a href="#empresas">Empresas</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Atención</h4>
+          <div>Lunes a viernes</div>
+          <div>08:15 a 19:00 hrs.</div>
+          <div>Ventas online</div>
+          <div>Gran Concepción</div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <div>dhasociados25@gmail.com</div>
+          <div>hernancorrealara@gmail.com</div>
+          <a href="empresas.html">Formulario empresas</a>
+          <a href="#contacto-form">Solicitar cotización</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        Mundo D&amp;H · Atención comercial para empresas y pymes · Despacho sujeto a cobertura y disponibilidad ·
+        Crédito comercial sujeto a evaluación.
+      </div>
+    </div>
+  </footer>
+
+  <button class="wa-float" type="button" aria-label="WhatsApp" title="WhatsApp" onclick="quickWhatsApp()">✆</button>
+
   <script>
-    const WHATSAPP_NUMERO = "56900000000";
+    const WHATSAPP_NUMERO = "56995708887";
 
     function openWhatsApp(message){
       const url = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(message)}`;
@@ -1119,6 +1229,13 @@
       return (document.getElementById(id)?.value || "").trim();
     }
 
+    function quickWhatsApp(){
+      const msg =
+`Hola, necesito información comercial de Mundo D&H.
+Quisiera cotizar productos y coordinar atención para empresa o pyme.`;
+      openWhatsApp(msg);
+    }
+
     function sendCompanyRequest(){
       const rs = val("rs");
       const rut = val("rut");
@@ -1127,55 +1244,56 @@
       const email = val("email");
       const comuna = val("comuna");
       const direccion = val("direccion");
-      const plazo = document.getElementById("plazo")?.value || "7 días";
-      const monto = document.getElementById("monto")?.value || "Menos de $100.000";
+      const tipo = document.getElementById("tipo")?.value || "Cotización empresa";
+      const plazo = document.getElementById("plazo")?.value || "Pago contra entrega";
       const detalle = val("detalle");
 
       if(!rs || !rut || !contacto || !fono || !comuna || !direccion || !detalle){
-        alert("Faltan campos obligatorios (*). Completa razón social, RUT, contacto, teléfono, comuna, dirección y detalle.");
+        alert("Completa los campos obligatorios: razón social, RUT, contacto, teléfono, comuna, dirección y detalle del requerimiento.");
         return;
       }
 
       const msg =
-`Solicitud Empresas — Mundo D&H
+`Solicitud comercial — Mundo D&H
 
 🏢 Razón social: ${rs}
 🧾 RUT empresa: ${rut}
 
 👤 Contacto: ${contacto}
 📞 Teléfono: ${fono}
-✉️ Email: ${email || "(no informado)"}
+✉️ Correo: ${email || "(no informado)"}
 
 📍 Comuna: ${comuna}
 📌 Dirección: ${direccion}
 
-💳 Pago / plazo: ${plazo}
-💰 Compra estimada: ${monto}
+📂 Tipo de atención: ${tipo}
+💳 Modalidad / plazo: ${plazo}
 
-🛒 Detalle / requerimiento:
+🛒 Detalle del requerimiento:
 ${detalle}
 
-Condiciones informadas:
-• Entrega 2 a 4 días hábiles según disponibilidad
+Condiciones generales:
+• Atención comercial para empresas, pymes, oficinas e instituciones
+• Entrega estimada de 2 a 4 días hábiles según disponibilidad
+• Crédito comercial sujeto a evaluación
 • Pago contra entrega disponible
-• Crédito empresas y pymes 7 / 15 / 20 días sujeto a evaluación
 
-¿Me confirman disponibilidad, precios y pasos para facturar?`;
+Agradeceré confirmación de factibilidad, disponibilidad y pasos siguientes.`;
 
       openWhatsApp(msg);
     }
 
     function clearForm(){
-      ["rs","rut","contacto","fono","email","comuna","direccion","detalle"].forEach(id => {
+      ["rs","rut","contacto","fono","email","comuna","direccion","detalle"].forEach(id=>{
         const el = document.getElementById(id);
         if(el) el.value = "";
       });
 
+      const tipo = document.getElementById("tipo");
       const plazo = document.getElementById("plazo");
-      const monto = document.getElementById("monto");
 
-      if(plazo) plazo.value = "7 días";
-      if(monto) monto.value = "Menos de $100.000";
+      if(tipo) tipo.value = "Cotización empresa";
+      if(plazo) plazo.value = "Pago contra entrega";
     }
   </script>
 </body>
