@@ -167,7 +167,7 @@ textarea{
 ========================= */
 .header{
   background:
-    radial-gradient(circle at top right, rgba(255,255,255,.14), transparent 24%),
+    radial-gradient(circle at top right, rgba(255,255,255,.10), transparent 22%),
     linear-gradient(180deg, #d51a38 0%, #c8102e 54%, #a70f28 100%);
   color:#fff;
   padding:16px 0 42px;
@@ -184,8 +184,8 @@ textarea{
   justify-content:space-between;
   gap:16px;
   flex-wrap:wrap;
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);
   border-radius:18px;
   padding:14px 16px;
   backdrop-filter:blur(8px);
@@ -218,12 +218,13 @@ textarea{
   font-size:14px;
   padding:11px 14px;
   border-radius:12px;
-  transition:background .18s ease, transform .18s ease;
+  transition:background .18s ease, transform .18s ease, color .18s ease;
 }
 
 .menu a:hover{
-  background:rgba(255,255,255,.12);
+  background:rgba(255,255,255,.14);
   transform:translateY(-1px);
+  color:#fff;
 }
 
 /* =========================
@@ -1172,4 +1173,5 @@ textarea{
   .sales-actions .btn{
     width:100%;
   }
-} asdsi quedo ? orregido no mas o le mejorarias algo mas responde corto 
+}  ahi esta todo el css no se qeu lo corta o qeu pasa  entregamelo listo no me cambies el rojo  ntsena to=canmore.create_textdoc>tagger_commentary 񹚪json
+{"name":"mundodh_style_css_limpio","type":"document","content":"Te prepararé el CSS limpio en el chat para que lo copies completo, manteniendo tu rojo."}
